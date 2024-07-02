@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
-// import ArrowComponent from "./ArrowComponent";
+import ArrowComponent from "./ArrowComponent";
 // import { useCloudinary } from "@/hooks/useCloudinary";
 
 const Hero = () => {
@@ -59,29 +59,6 @@ const Hero = () => {
             type="video/mp4"
           />
         </video>
-        {/* <iframe
-          className="w-full h-full object-cover opacity-60"
-          src="https://www.youtube.com/embed/ofO0d2MqKro&autoplay=1&mute=1&controls=0&loop=1&end=59"
-          frameBorder="0"
-          allowFullScreen
-          allow="autoplay"
-        /> */}
-        {/* <iframe
-          className="w-full h-full object-cover opacity-60"
-          src="https://www.youtube.com/embed/ofO0d2MqKro?si=uCavEovXuuhC9VcQ?autoplay=1&mute=1&controls=0&loop=1&playlist=ofO0d2MqKro"
-          title="Hero video"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        /> */}
-
-        {/* <BackgroundVideo
-          src="https://stream.mux.com/r3Vq2b012wJ62Qmw1wEHR6AFcjKpC102Mm5vP3O02v9ngk.m3u8"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover opacity-60"
-        /> */}
       </div>
       <div className="relative z-10 text-center flex flex-col items-center">
         <Image
@@ -101,7 +78,7 @@ const Hero = () => {
         <h2 className="text-white text-sm mb-8">Barber | Tattoo | Design</h2>
         <BookNowButton extraClasses="rounded-full hover:bg-gray-200 hover:text-black transition-colors duration-300" />
       </div>
-      {/* <ArrowComponent /> */}
+      <ArrowComponent />
     </section>
   );
 };
