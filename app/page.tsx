@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import ServicesContainer from "./components/ServicesContainer";
 import { CarouselProvider } from "../context/CarouselContext";
 import TeamOverviewContainer from "./components/TeamOverviewContainer";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <ServicesContainer />
         <TeamOverviewContainer />
+        <Footer />
       </CarouselProvider>
     </main>
   );
