@@ -1,14 +1,11 @@
-import Image from "next/image";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <Image
-      src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
-      alt="Vercel Logo"
-      className="dark:invert"
-      width={100}
-      height={24}
-      priority
-    />
+    <>
+      <Navbar />
+      <Hero />
+    </>
   );
 }
