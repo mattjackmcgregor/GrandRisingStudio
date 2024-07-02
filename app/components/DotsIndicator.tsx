@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import { CarouselContext } from "../../context/CarouselContext";
+// import { CarouselContext } from "../../context/CarouselContext";
 
 interface dotsIndicatorProps {
   activeIndex: number;
@@ -12,7 +12,7 @@ const DotsIndicator: React.FC<dotsIndicatorProps> = ({
   activeIndex,
   totalItems,
 }) => {
-  const { handleIndexChange } = useContext(CarouselContext);
+  // const { handleIndexChange } = useContext(CarouselContext);
   return (
     <div className="flex justify-center p-4">
       {Array.from({ length: totalItems }).map((_, index) => (

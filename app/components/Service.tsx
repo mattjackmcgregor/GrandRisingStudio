@@ -37,7 +37,7 @@ const Service: React.FC<ServiceProps> = ({
       <div className="bg-black flex flex-col justify-center mx-10 items-center max-w-lg">
         <h1 className="text-6xl mb-1">{service}</h1>
         <p className="text-center mb-4 p-4 text-sm">{description}</p>
-        <BookNowButton extraClasses=" rounded-full hover:bg-gray-200 hover:text-black transition-colors duration-300 mb-10 z-10 " />
+        <BookNowButton extraClasses=" rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 mb-10 z-10 " />
       </div>
     </div>
   );
