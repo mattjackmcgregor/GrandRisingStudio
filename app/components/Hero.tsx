@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
 import ArrowComponent from "./ArrowComponent";
+import MouseScrollIcon from "./MouseScrollIcon";
 // import { useCloudinary } from "@/hooks/useCloudinary";
 
 const Hero = () => {
@@ -78,7 +79,8 @@ const Hero = () => {
         <h2 className="text-white text-sm mb-8">Barber | Tattoo | Design</h2>
         <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300" />
       </div>
-      <ArrowComponent />
+      {/* <ArrowComponent /> */}
+      <MouseScrollIcon />
     </section>
   );
 };
