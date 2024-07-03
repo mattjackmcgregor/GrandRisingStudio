@@ -14,10 +14,10 @@ const sections = [
 ];
 
 const Navbar = () => {
-  const [position, setPosition] = useState("Home");
+  const [activeSection, setActiveSection] = useState("Home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showNav, setShowNav] = useState(false);
-  const sectionRefs = useRef([]);
+  const observerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,14 +30,44 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    // Intersection Observer setup
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // 50% of the target is visible
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const sectionLabel = sections.find(
+            (section) => section.id === sectionId
+          )?.label;
+          if (sectionLabel) {
+            setActiveSection(sectionLabel);
+          }
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observerRef.current.observe(element);
+    });
+
     return () => {
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
     };
   }, []);
 
   const handleClick = (e) => {
     console.log(e.target.value);
-    setPosition(e.target.name);
+    setActiveSection(e.target.name);
     setIsDropdownOpen(false);
     document.getElementById(e.target.value)?.scrollIntoView({
       behavior: "smooth",
@@ -58,7 +88,6 @@ const Navbar = () => {
                 height={40}
                 width={40}
                 className="cursor-pointer"
-                priority
               />
             </Link>
           </div>
@@ -67,7 +96,7 @@ const Navbar = () => {
               className=" text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              {position}
+              {activeSection}
               <span className="ml-5">
                 {isDropdownOpen ? (
                   <Image
@@ -103,7 +132,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="px-4 py-2">
-            <BookNowButton extraClasses=" rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 " />
+            <BookNowButton extraClasses=" rounded-full hover:bg-gray-200 hover:text-black transition-colors duration-300 " />
           </div>
         </nav>
       )}
