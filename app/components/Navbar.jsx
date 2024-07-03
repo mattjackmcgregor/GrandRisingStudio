@@ -40,11 +40,14 @@ const Navbar = () => {
 
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        //check if current section is intersecting the viewport
         if (entry.isIntersecting) {
+          //match the section id with the menu section id
           const sectionId = entry.target.id;
           const sectionLabel = sections.find(
             (section) => section.id === sectionId
           )?.label;
+          //if the section thats intersecting is found in the menu selection, set it as active
           if (sectionLabel) {
             setActiveSection(sectionLabel);
           }
