@@ -24,12 +24,16 @@ const ServicesContainer: React.FC = () => {
   const handleSwipeLeft = () => {
     if (sectionIdx < sectionData.length - 1) {
       setSectionIdx(sectionIdx + 1);
+    } else {
+      setSectionIdx(0);
     }
   };
 
   const handleSwipeRight = () => {
     if (sectionIdx > 0) {
       setSectionIdx(sectionIdx - 1);
+    } else {
+      setSectionIdx(sectionData.length - 1);
     }
   };
   return (

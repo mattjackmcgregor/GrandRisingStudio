@@ -135,7 +135,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="px-4 py-2">
-            <BookNowButton extraClasses=" rounded-full hover:bg-gray-200 hover:text-black transition-colors duration-300 " />
+            <BookNowButton extraClasses=" rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 border border-white " />
           </div>
         </nav>
       )}
