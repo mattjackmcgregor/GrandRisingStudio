@@ -5,12 +5,17 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
 import ArrowComponent from "./ArrowComponent";
+import dynamic from "next/dynamic";
 import MouseScrollIcon from "./MouseScrollIcon";
-// import { useCloudinary } from "@/hooks/useCloudinary";
+import { useCloudinary } from "../hooks/useCloudinary";
+
+const DynamicCloudinaryVideo = dynamic(() => import("./CloudinaryVideo"), {
+  ssr: false,
+});
 
 const Hero = () => {
   const h1Ref = useRef(null);
-  // const { getVideoUrl } = useCloudinary();
+  const { getVideoUrl } = useCloudinary();
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
@@ -49,17 +54,10 @@ const Hero = () => {
       className="relative h-screen w-screen flex flex-col bg-black items-center justify-center"
     >
       <div id="bg-video" className="absolute inset-0 z-0">
-        <video
+        <DynamicCloudinaryVideo
+          publicId="heroCompressed2_znc83d"
           className="w-full h-full object-cover opacity-60"
-          autoPlay
-          muted
-          loop
-        >
-          <source
-            src="https://res.cloudinary.com/deiv1hpqw/video/upload/v1719886890/heroCompressed2_znc83d.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
       </div>
       <div className="relative z-10 text-center flex flex-col items-center">
         <Image

@@ -3,17 +3,15 @@
 import React, { useState } from "react";
 import TeamCard from "./TeamCard";
 
-//need to clean up img paths
-
 const teamData = [
   {
     id: 1,
     name: "John Doe",
     images: [
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
+      "barberCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "tattooCompressedImg",
     ],
     services: ["Web Development", "UI/UX Design", "Consulting"],
     description:
@@ -28,14 +26,12 @@ const teamData = [
     id: 2,
     name: "Jane Smith",
     images: [
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
+      "barberCompressedImg",
+      "tattooCompressedImg",
+      "tattooCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "tattooCompressedImg",
     ],
     services: [
       "Digital Marketing",
@@ -54,9 +50,10 @@ const teamData = [
     id: 3,
     name: "Michael Johnson",
     images: [
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904752/barberCompressed_xjly3c.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
-      "https://res.cloudinary.com/deiv1hpqw/image/upload/v1719904749/tattooCompressed_hqeelc.webp",
+      "tattooCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "barberCompressedImg",
     ],
     services: ["Graphic Design", "Branding", "Print Design"],
     description:
