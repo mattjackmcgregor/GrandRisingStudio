@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import TeamCard from "./TeamCard";
 
+//need to clean up img paths
+
 const teamData = [
   {
     id: 1,
