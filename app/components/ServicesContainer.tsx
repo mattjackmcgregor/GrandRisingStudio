@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 import Service from "./Service";
 import DotsIndicator from "./DotsIndicator";
 import { useSwipeable } from "react-swipeable";
 import SwipeIndicator from "./SwipeIndicator";
-// import SwipeIndicator from "./SwipeIndicator";
 import { sectionData } from "@/data/serviceData";
-// import { useCloudinary } from "@/hooks/useCloudinary";
+import { useCloudinary } from "../hooks/useCloudinary";
 
 const ServicesContainer: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [sectionIdx, setSectionIdx] = useState(0);
-  // const { getVideoUrl } = useCloudinary();
+  const { getVideoUrl } = useCloudinary();
 
   const handlers = useSwipeable({
     onSwipedLeft: () => handleSwipeLeft(),
@@ -43,7 +43,7 @@ const ServicesContainer: React.FC = () => {
           <Service
             service={sectionData[sectionIdx].service}
             description={sectionData[sectionIdx].description}
-            videoUrl={sectionData[sectionIdx].videoUrl}
+            videoPublicId={sectionData[sectionIdx].videoUrl}
           />
         </div>
         <DotsIndicator activeIndex={sectionIdx} totalItems={3} />

@@ -1,38 +1,39 @@
 import { useEffect, useRef } from "react";
 import BookNowButton from "./BookNowButton";
+import dynamic from "next/dynamic";
+
+const DynamicCloudinaryVideoService = dynamic(
+  () => import("./CloudinaryVideo"),
+  { ssr: false }
+);
 
 interface ServiceProps {
   service: string;
   description: string;
-  videoUrl: string;
+  videoPublicId: string;
 }
 
 const Service: React.FC<ServiceProps> = ({
   service,
   description,
-  videoUrl,
+  videoPublicId,
 }: ServiceProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.src = videoUrl;
+      videoRef.current.src = videoPublicId;
       videoRef.current.load();
     }
-  }, [videoUrl]);
+  }, [videoPublicId]);
 
   return (
     <div className="min-w-full scroll-snap-align-start flex justify-center items-center">
       <div id="bg-video" className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
+        <DynamicCloudinaryVideoService
+          publicId={videoPublicId}
           className="w-full h-full object-cover opacity-60"
-          autoPlay
-          muted
-          loop
-        >
-          <source src={videoUrl} type="video/mp4" />
-        </video>
+        />
       </div>
       <div className="bg-black flex flex-col justify-center mx-10 items-center max-w-lg">
         <h1 className="text-6xl mb-1">{service}</h1>
