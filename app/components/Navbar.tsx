@@ -17,7 +17,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showNav, setShowNav] = useState(false);
-  const observerRef = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
           const sectionLabel = sections.find(
             (section) => section.id === sectionId
           )?.label;
-          //if the section thats intersecting is found in the menu selection, set it as active
+          //if the section that's intersecting is found in the menu selection, set it as active
           if (sectionLabel) {
             setActiveSection(sectionLabel);
           }
@@ -57,7 +57,7 @@ const Navbar = () => {
 
     sections.forEach((section) => {
       const element = document.getElementById(section.id);
-      if (element) observerRef.current.observe(element);
+      if (element) observerRef.current?.observe(element);
     });
 
     return () => {
@@ -68,11 +68,12 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e.target.value);
-    setActiveSection(e.target.name);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.target as HTMLButtonElement;
+    console.log(target.value);
+    setActiveSection(target.name);
     setIsDropdownOpen(false);
-    document.getElementById(e.target.value)?.scrollIntoView({
+    document.getElementById(target.value)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
@@ -94,13 +95,14 @@ const Navbar = () => {
               />
             </Link>
           </div>
+
           <div className="absolute left-1/2 transform -translate-x-1/2 ">
             <Button
-              className=" text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
+              className=" text-white px-6 py-1 bg-ghost rounded-full transition-colors duration-300"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {activeSection}
-              <span className="ml-5">
+              <span className="ml-1">
                 {isDropdownOpen ? (
                   <Image
                     src={"/cheveron-up.svg"}
@@ -119,13 +121,13 @@ const Navbar = () => {
               </span>
             </Button>
             {isDropdownOpen && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-gray-800 text-white rounded-md shadow-lg flex flex-col justify-center">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black text-white rounded-md shadow-lg flex flex-col justify-center">
                 {sections.map((section) => (
                   <Button
                     key={section.id}
                     value={section.id}
                     name={section.label}
-                    className="block w-full text-left px-4 py-2 bg-black hover:bg-gray-700 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+                    className="block w-full text-left px-4 py-2 bg-black transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
                     onClick={handleClick}
                   >
                     {section.label}
@@ -135,7 +137,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="px-4 py-2">
-            <BookNowButton extraClasses=" rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 border border-white " />
+            <BookNowButton extraClasses=" rounded-full bg-customGray hover:text-black transition-colors duration-300  " />
           </div>
         </nav>
       )}
