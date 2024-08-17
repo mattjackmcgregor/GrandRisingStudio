@@ -40,14 +40,14 @@ const Navbar = () => {
 
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        //check if current section is intersecting the viewport
+        // Check if current section is intersecting the viewport
         if (entry.isIntersecting) {
-          //match the section id with the menu section id
+          // Match the section id with the menu section id
           const sectionId = entry.target.id;
           const sectionLabel = sections.find(
             (section) => section.id === sectionId
           )?.label;
-          //if the section that's intersecting is found in the menu selection, set it as active
+          // If the section that's intersecting is found in the menu selection, set it as active
           if (sectionLabel) {
             setActiveSection(sectionLabel);
           }
@@ -70,7 +70,6 @@ const Navbar = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
-    console.log(target.value);
     setActiveSection(target.name);
     setIsDropdownOpen(false);
     document.getElementById(target.value)?.scrollIntoView({
@@ -80,11 +79,35 @@ const Navbar = () => {
     });
   };
 
+  const desktopNav = (
+    <div className="hidden md:flex justify-center w-full ">
+      <ul className="flex justify-evenly px-8 w-full max-w-2xl mx-auto">
+        {sections.map((section) => (
+          <li
+            key={section.id}
+            className="px-4 py-2 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+          >
+            <button
+              name={section.label}
+              value={section.id}
+              onClick={handleClick}
+              className={`text-white ${
+                activeSection === section.label ? "underline" : ""
+              }`}
+            >
+              {section.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <>
       {showNav && (
-        <nav className="bg-black flex justify-between items-center top-0 left-0 right-0 z-50 fixed w-screen">
-          <div className=" px-4 py-2 ">
+        <nav className="bg-black flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen">
+          <div className="px-4 py-2">
             <Link href="/">
               <Image
                 src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
@@ -95,14 +118,14 @@ const Navbar = () => {
               />
             </Link>
           </div>
-
-          <div className="absolute left-1/2 transform -translate-x-1/2 ">
+          {desktopNav}
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
             <Button
-              className=" text-white px-6 py-1 bg-ghost rounded-full transition-colors duration-300"
+              className="text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {activeSection}
-              <span className="ml-1">
+              <span className="ml-5">
                 {isDropdownOpen ? (
                   <Image
                     src={"/cheveron-up.svg"}
@@ -121,13 +144,13 @@ const Navbar = () => {
               </span>
             </Button>
             {isDropdownOpen && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-black text-white rounded-md shadow-lg flex flex-col justify-center">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-gray-800 text-white rounded-md shadow-lg flex flex-col justify-center">
                 {sections.map((section) => (
                   <Button
                     key={section.id}
                     value={section.id}
                     name={section.label}
-                    className="block w-full text-left px-4 py-2 bg-black transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+                    className="block w-full text-left px-4 py-2 bg-black hover:bg-gray-700 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
                     onClick={handleClick}
                   >
                     {section.label}
@@ -137,7 +160,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="px-4 py-2">
-            <BookNowButton extraClasses=" rounded-full bg-customGray hover:text-black transition-colors duration-300  " />
+            <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 border border-white" />
           </div>
         </nav>
       )}
