@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "slug": "project-1",
+    "title": "Project 1",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1",
+    "fullDescription": "Detailed description for Project 1",
+    "images": [
+      "barberCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "tattooCompressedImg"
+    ],
+    "videos": ["cloudinary_video_url_1"]
+  },
+  {
+    "id": 2,
+    "slug": "project-2",
+
+    "title": "Project 2",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
+    "fullDescription": "Detailed description for Project 2",
+    "images": ["tattooCompressedImg", "barberCompressedImg"],
+    "videos": ["cloudinary_video_url_2"]
+  }
+]

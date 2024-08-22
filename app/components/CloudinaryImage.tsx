@@ -1,3 +1,5 @@
+"use cilent";
+
 import { CldImage } from "next-cloudinary";
 
 interface CloudinaryImageProps {
