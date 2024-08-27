@@ -23,23 +23,27 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white h-full rounded-lg shadow-md overflow-hidden">
       <DynamicCloudinaryImage
         key={project.id}
         src={project.images[0]}
         alt={project.title}
         width={300}
         height={200}
+        extraClasses="object-cover w-full h-[70%]"
       />
-      <div className="p-4">
+
+      <div className="p-4 h-full flex flex-col pb-0">
         <h3 className="text-xl font-bold text-black">{project.title}</h3>
         <p className="text-sm text-gray-600 mb-2">{project.subtitle}</p>
         <div className="relative h-16 overflow-hidden">
           <p className="text-gray-800">{project.description}</p>
 
-          <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-white to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
         </div>
-        <p className="text-black">See more</p>
+        <p className="text-black/50 text-center bg-transparent hover:scale-105 hover:text-black transition-all  text-gray-600 pb-5">
+          See more
+        </p>
       </div>
     </div>
   );

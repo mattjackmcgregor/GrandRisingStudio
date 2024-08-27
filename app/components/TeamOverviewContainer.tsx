@@ -15,7 +15,7 @@ const teamData = [
     ],
     services: ["Web Development", "UI/UX Design", "Consulting"],
     description:
-      "John is a seasoned web developer with over 10 years of experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design.",
+      "John is a seasoned web developer with over 10 years of experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design. experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design",
     socialMediaHandles: {
       twitter: "https://twitter.com/johndoe",
       linkedin: "https://linkedin.com/in/johndoe",
@@ -96,7 +96,10 @@ const TeamOverviewContainer = () => {
   };
 
   return (
-    <div id="teamOverview">
+    <div id="teamOverview" className="h-full py-6 flex flex-col">
+      <h2 className="text-3xl font-bold text-center pb-6 text-white">
+        Meet the Team
+      </h2>
       <TeamCard
         key={teamData[teamMemberIdx].id}
         {...teamData[teamMemberIdx]}
