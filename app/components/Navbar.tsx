@@ -10,6 +10,7 @@ const sections = [
   { id: "hero", label: "Home" },
   { id: "services", label: "Services" },
   { id: "teamOverview", label: "Team" },
+  { id: "projectsSection", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -17,7 +18,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showNav, setShowNav] = useState(false);
-  const observerRef = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,14 +41,14 @@ const Navbar = () => {
 
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        //check if current section is intersecting the viewport
+        // Check if current section is intersecting the viewport
         if (entry.isIntersecting) {
-          //match the section id with the menu section id
+          // Match the section id with the menu section id
           const sectionId = entry.target.id;
           const sectionLabel = sections.find(
             (section) => section.id === sectionId
           )?.label;
-          //if the section thats intersecting is found in the menu selection, set it as active
+          // If the section that's intersecting is found in the menu selection, set it as active
           if (sectionLabel) {
             setActiveSection(sectionLabel);
           }
@@ -57,7 +58,7 @@ const Navbar = () => {
 
     sections.forEach((section) => {
       const element = document.getElementById(section.id);
-      if (element) observerRef.current.observe(element);
+      if (element) observerRef.current?.observe(element);
     });
 
     return () => {
@@ -68,22 +69,46 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e.target.value);
-    setActiveSection(e.target.name);
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.target as HTMLButtonElement;
+    setActiveSection(target.name);
     setIsDropdownOpen(false);
-    document.getElementById(e.target.value)?.scrollIntoView({
+    document.getElementById(target.value)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
     });
   };
 
+  const desktopNav = (
+    <div className="hidden md:flex justify-center w-full ">
+      <ul className="flex justify-evenly px-8 w-full max-w-2xl mx-auto">
+        {sections.map((section) => (
+          <li
+            key={section.id}
+            className="px-4 py-2 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+          >
+            <button
+              name={section.label}
+              value={section.id}
+              onClick={handleClick}
+              className={`text-white ${
+                activeSection === section.label ? "underline" : ""
+              }`}
+            >
+              {section.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <>
       {showNav && (
-        <nav className="bg-black flex justify-between items-center top-0 left-0 right-0 z-50 fixed w-screen">
-          <div className=" px-4 py-2 ">
+        <nav className="bg-black flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen">
+          <div className="px-4 py-2">
             <Link href="/">
               <Image
                 src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
@@ -94,9 +119,10 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className="absolute left-1/2 transform -translate-x-1/2 ">
+          {desktopNav}
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
             <Button
-              className=" text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
+              className="text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {activeSection}
@@ -135,7 +161,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="px-4 py-2">
-            <BookNowButton extraClasses=" rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300 border border-white " />
+            <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 border border-white" />
           </div>
         </nav>
       )}

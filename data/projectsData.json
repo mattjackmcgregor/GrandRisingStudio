@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "slug": "project-1",
+    "title": "Project 1",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1 Description for Project 1",
+    "fullDescription": "Detailed description for Project 1",
+    "images": [
+      "barberCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "tattooCompressedImg"
+    ],
+    "videos": ["cloudinary_video_url_1"]
+  },
+  {
+    "id": 3,
+    "slug": "project-3",
+
+    "title": "Project 2",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
+    "fullDescription": "Detailed description for Project 2",
+    "images": ["tattooCompressedImg", "barberCompressedImg"],
+    "videos": ["cloudinary_video_url_2"]
+  },
+  {
+    "id": 4,
+    "slug": "project-4",
+
+    "title": "Project 2",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
+    "fullDescription": "Detailed description for Project 2",
+    "images": ["tattooCompressedImg", "barberCompressedImg"],
+    "videos": ["cloudinary_video_url_2"]
+  },
+  {
+    "id": 5,
+    "slug": "project-5",
+
+    "title": "Project 2",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
+    "fullDescription": "Detailed description for Project 2",
+    "images": ["tattooCompressedImg", "barberCompressedImg"],
+    "videos": ["cloudinary_video_url_2"]
+  },
+  {
+    "id": 6,
+    "slug": "project-6",
+
+    "title": "Project 6",
+    "subtitle": "something else about the graff project",
+    "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
+    "fullDescription": "Detailed description for Project 2",
+    "images": ["tattooCompressedImg", "barberCompressedImg"],
+    "videos": ["cloudinary_video_url_2"]
+  }
+]

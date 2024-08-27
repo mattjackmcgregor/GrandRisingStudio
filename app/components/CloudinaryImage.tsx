@@ -1,3 +1,5 @@
+"use client";
+
 import { CldImage } from "next-cloudinary";
 
 interface CloudinaryImageProps {
@@ -5,9 +7,16 @@ interface CloudinaryImageProps {
   alt: string;
   width: number;
   height: number;
+  extraClasses?: string;
 }
 
-const CloudinaryImage = ({ src, alt, width, height }: CloudinaryImageProps) => (
+const CloudinaryImage = ({
+  src,
+  alt,
+  width,
+  height,
+  extraClasses,
+}: CloudinaryImageProps) => (
   <CldImage
     width={width}
     height={height}
@@ -15,6 +24,7 @@ const CloudinaryImage = ({ src, alt, width, height }: CloudinaryImageProps) => (
     sizes="(max-width: 768px) 100vw, 50vw"
     alt={alt}
     loading="lazy"
+    className={`${extraClasses}`}
   />
 );
 
