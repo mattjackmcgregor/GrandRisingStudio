@@ -10,9 +10,20 @@
       "barberCompressedImg",
       "tattooCompressedImg",
       "barberCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
+      "tattooCompressedImg",
+      "barberCompressedImg",
       "tattooCompressedImg"
     ],
-    "videos": ["cloudinary_video_url_1"]
+    "videos": [
+      "sampleTattooCompressed2_rlwowh",
+      "sampleDesignCompressed2_qbcadr",
+      "sampleTattooCompressed2_rlwowh",
+      "sampleDesignCompressed2_qbcadr",
+      "sampleTattooCompressed2_rlwowh",
+      "sampleDesignCompressed2_qbcadr"
+    ]
   },
   {
     "id": 3,
@@ -23,7 +34,10 @@
     "description": "Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2 Description for Project 2",
     "fullDescription": "Detailed description for Project 2",
     "images": ["tattooCompressedImg", "barberCompressedImg"],
-    "videos": ["cloudinary_video_url_2"]
+    "videos": [
+      "sampleTattooCompressed2_rlwowh",
+      "sampleDesignCompressed2_qbcadr"
+    ]
   },
   {
     "id": 4,
