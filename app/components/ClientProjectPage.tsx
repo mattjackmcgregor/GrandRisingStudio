@@ -74,7 +74,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
     <div className="min-h-screen bg-black text-white ">
       <div
         ref={projectTagRef}
-        className="fixed top-4 left-4 z-10 backdrop-blur-lg"
+        className="fixed top-16 left-4 z-10 backdrop-blur-lg"
       >
         <Link
           href="/"
@@ -101,7 +101,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
         </div>
       </div>
 
-      <main ref={contentRef} className=" px-4 py-12">
+      <main ref={contentRef} className=" px-4 py-14">
         {project.images && project.images.length > 0 && (
           <div className=" -top-12 w-full h-[33vh] md:w-[66vw] md:pl-2 md:pb-1 float-right">
             <CloudinaryImage
@@ -114,7 +114,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
           </div>
         )}
 
-        <section className="mb-12 mt-36 md:pl-1 md:pr-3">
+        <section className="mb-12 mt-40 md:pl-1 md:pr-3">
           {/* <ExpandableDescription description={project.fullDescription} /> */}
           <p className="text-lg text-gray-300">{project.fullDescription}</p>
         </section>
@@ -134,7 +134,9 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
             ))}
           </section>
         )}
-
+        <h2 className="text-2xl font-semibold mb-4 text-white">
+          Project Photos
+        </h2>
         {project.images && project.images.length > 1 && (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {project.images.slice(1).map((image, index) => (
@@ -171,49 +173,3 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
 };
 
 export default ClientProjectPage;
-
-// interface ExpandableDescriptionProps {
-//   description: string;
-// }
-
-// export const ExpandableDescription: React.FC<ExpandableDescriptionProps> = ({
-//   description,
-// }) => {
-//   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-//   const [showButton, setShowButton] = useState<boolean>(false);
-//   const contentRef = useRef<HTMLParagraphElement>(null);
-
-//   useEffect(() => {
-//     if (contentRef.current) {
-//       const lineHeight = parseInt(
-//         window.getComputedStyle(contentRef.current).lineHeight
-//       );
-//       const maxHeight = lineHeight * 8; // 8 lines
-//       setShowButton(contentRef.current.scrollHeight > maxHeight);
-//     }
-//   }, [description]);
-
-//   return (
-//     <div className="relative">
-//       <p
-//         ref={contentRef}
-//         className={`text-lg text-gray-300 transition-all duration-300 ease-in-out ${
-//           isExpanded ? "" : "max-h-[13.5em] overflow-hidden"
-//         }`}
-//       >
-//         {description}
-//       </p>
-//       {!isExpanded && showButton && (
-//         <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent " />
-//       )}
-//       {showButton && (
-//         <button
-//           className="absolute bottom-0  bg-transparent text-gray-300 hover:text-white transition-colors duration-200  py-2 px-4"
-//           onClick={() => setIsExpanded(!isExpanded)}
-//         >
-//           {isExpanded ? "Show less" : "Read full description"}
-//         </button>
-//       )}
-//     </div>
-//   );
-// };

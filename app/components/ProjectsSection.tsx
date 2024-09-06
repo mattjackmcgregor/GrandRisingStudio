@@ -54,6 +54,15 @@ const ProjectsSection: React.FC = () => {
                   </Link>
                 </CarouselItem>
               ))}
+              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3 h-[70vh]">
+                <Link href="/projects/all">
+                  <div className="bg-white h-full rounded-lg shadow-md overflow-hidden flex items-center justify-center">
+                    <h3 className="text-2xl font-bold text-black">
+                      See All Projects
+                    </h3>
+                  </div>
+                </Link>
+              </CarouselItem>
             </CarouselContent>
 
             <CarouselPrevious className="top-1/3 " />
