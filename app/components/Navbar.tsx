@@ -58,6 +58,11 @@ const Navbar = () => {
           observerRef.current.disconnect();
         }
       };
+    } else {
+      const currentSection = sections.find(
+        (section) => pathname === section.href
+      );
+      setActiveSection(currentSection!.label);
     }
   }, [isHomePage]);
 
@@ -85,7 +90,13 @@ const Navbar = () => {
                     value={section.id}
                     onClick={handleClick}
                     className={`text-white ${
-                      activeSection === section.label ? "underline" : ""
+                      isHomePage
+                        ? activeSection === section.label
+                          ? "underline"
+                          : ""
+                        : pathname === section.href
+                        ? "underline"
+                        : ""
                     }`}
                   >
                     {section.label}
