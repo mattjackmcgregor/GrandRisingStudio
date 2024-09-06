@@ -7,7 +7,9 @@ import BookNowButton from "./BookNowButton";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 
-const sections = [
+type section = { id: string; label: string; href: string };
+
+const sections: section[] = [
   { id: "hero", label: "Home", href: "/" },
   { id: "services", label: "Services", href: "/services/all" },
   { id: "teamOverview", label: "Team", href: "/team/all" },
@@ -62,9 +64,9 @@ const Navbar = () => {
       const currentSection = sections.find(
         (section) => pathname === section.href
       );
-      setActiveSection(currentSection!.label);
+      setActiveSection(currentSection?.label || "");
     }
-  }, [isHomePage]);
+  }, [isHomePage, pathname]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
