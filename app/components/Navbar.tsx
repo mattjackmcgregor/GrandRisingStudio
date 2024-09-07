@@ -125,8 +125,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-transparent flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28">
-        <div className="px-4 py-4">
+      <nav className="bg-transparent px-3 md:px-6 flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28">
+        <div className="">
           <Link
             href="/"
             onClick={() => {
@@ -192,8 +192,8 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="px-4 py-2">
-          <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 border border-white" />
+        <div className="">
+          <BookNowButton extraClasses="rounded-full md:scale-110  bg-transparent hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 border border-white" />
         </div>
       </nav>
     </>
