@@ -3,17 +3,21 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { useMemo } from "react";
 
 export const useCloudinary = () => {
+  const cloudName = "deiv1hpqw";
+
   const cld = useMemo(
     () =>
       new Cloudinary({
         cloud: {
-          cloudName: "deiv1hpqw",
+          cloudName,
         },
       }),
-    []
+    [cloudName]
   );
 
-  const getVideoUrl = (videoId: string) => cld.video(videoId).toURL();
+  const getVideoUrl = (videoId: string, quality: string = "auto") => {
+    return cld.video(videoId).quality(quality).toURL();
+  };
 
-  return { getVideoUrl };
+  return { getVideoUrl, cloudName, cld };
 };

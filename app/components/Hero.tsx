@@ -44,7 +44,6 @@ const Hero = () => {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      console.log("scrolling~");
 
       if (scrollPosition > 0) {
         gsap.to(mouseScrollIconRef.current, {
