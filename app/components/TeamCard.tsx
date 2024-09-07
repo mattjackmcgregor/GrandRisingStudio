@@ -90,7 +90,13 @@ const TeamCard: React.FC<Props> = ({
   return (
     <div className="w-full h-full flex flex-col md:flex-row items-center space-y-10 px-4">
       <div className="w-full md:w-1/2 h-full ">
-        <Carousel setApi={setApi} className="w-full h-full ">
+        <Carousel
+          setApi={setApi}
+          opts={{
+            loop: true,
+          }}
+          className="w-full h-full "
+        >
           <CarouselContent className="-ml-0 h-full">
             {cloudinaryImages.map((image, index) => (
               <CarouselItem key={index} className="pl-0 h-[50vh] md:h-[80vh]">
