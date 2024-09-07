@@ -7,7 +7,7 @@ import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   return (
-    <main className=" bg-black text-white flex flex-col justify-center max-w-[1440px] mx-auto">
+    <main className=" bg-black text-white flex flex-col justify-center mx-auto">
       <Hero />
       <ServicesContainer />
       <TeamOverviewContainer />

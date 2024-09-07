@@ -7,7 +7,7 @@ import projectData from "../../../data/projectsData.json";
 
 const AllProjectsPage: React.FC = () => {
   return (
-    <div className="container mt-12 bg-black text-white mx-auto px-4 py-12 min-h-screen">
+    <div className=" mt-12 bg-black text-white mx-auto px-4 py-12 min-h-screen">
       <h1 className="text-3xl font-bold mb-8 text-center">All Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectData.map((project) => (

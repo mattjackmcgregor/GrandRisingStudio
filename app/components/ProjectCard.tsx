@@ -23,7 +23,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="relative w-full h-full rounded-lg shadow-lg overflow-hidden group">
+    <div className="relative w-full h-full  shadow-lg overflow-hidden group">
       {/* Background Image */}
       <DynamicCloudinaryImage
         key={project.id}
