@@ -56,8 +56,14 @@ const ServicesContainer: React.FC = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="ml-20" aria-label="Previous slide" />
-        <CarouselNext className="mr-20" aria-label="Next slide" />
+        <CarouselPrevious
+          className="ml-20 lg:ml-16 lg:left-0.5 "
+          aria-label="Previous slide"
+        />
+        <CarouselNext
+          className="mr-20 lg:mr-16 lg:right-0.5 "
+          aria-label="Next slide"
+        />
       </Carousel>
 
       <div className="absolute bottom-1 left-1/2  transform -translate-x-1/2 opacity-50">
