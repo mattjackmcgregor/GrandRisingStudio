@@ -54,10 +54,10 @@ const ProjectsSection: React.FC = () => {
                   </Link>
                 </CarouselItem>
               ))}
-              <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/3 h-[70vh]">
+              <CarouselItem className="pl-4  h-[70vh] sm:w-64 md:w-72 lg:w-80 xl:w-96 max-w-sm flex justify-center items-center bg-gradient-to-b from-black to-gray-800 ">
                 <Link href="/projects/all">
-                  <div className="bg-white h-full rounded-lg shadow-md overflow-hidden flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-black">
+                  <div className=" rounded-lg p-4 h-full ">
+                    <h3 className="text-lg font-bold text-white text-center hover:underline">
                       See All Projects
                     </h3>
                   </div>
@@ -65,8 +65,8 @@ const ProjectsSection: React.FC = () => {
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious className="top-1/3 " />
-            <CarouselNext className="top-1/3  " />
+            <CarouselPrevious className=" " />
+            <CarouselNext className=" " />
           </Carousel>
           <div className="mt-4">
             <DotsIndicator
