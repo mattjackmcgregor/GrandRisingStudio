@@ -83,7 +83,7 @@ const Navbar = () => {
 
   const desktopNav = (
     <div className="hidden md:flex justify-center w-full  ">
-      <ul className="flex justify-around px-8 w-full max-w-2xl mx-auto backdrop-filter backdrop-blur-lg rounded-lg shadow-lg bg-transparent">
+      <ul className="flex justify-around w-full md:w-3/4 max-w-2xl mx-auto backdrop-filter backdrop-blur-lg rounded-lg shadow-lg bg-transparent">
         {sections.map((section) => {
           if (section.id === "hero") {
             return;
@@ -125,8 +125,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-transparent flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen">
-        <div className="px-4 py-2">
+      <nav className="bg-transparent flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28">
+        <div className="px-4 py-4">
           <Link
             href="/"
             onClick={() => {
@@ -137,20 +137,20 @@ const Navbar = () => {
             <Image
               src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
               alt="Grand Rising Logo"
-              height={40}
-              width={40}
-              className="cursor-pointer"
+              height={200}
+              width={200}
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 cursor-pointer object-contain"
             />
           </Link>
         </div>
         {desktopNav}
         <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
           <Button
-            className="text-white px-6 py-3 hover:bg-gray-700  rounded-full transition-colors duration-300 bg-filter backdrop-blur-lg bg-transparent "
+            className="text-white px-4 py-3 hover:bg-gray-700  rounded-full transition-colors duration-300 bg-filter backdrop-blur-lg bg-transparent "
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             {activeSection}
-            <span className="ml-5">
+            <span className="ml-1">
               {isDropdownOpen ? (
                 <Image
                   src={"/cheveron-up.svg"}
