@@ -18,8 +18,9 @@ const sections: section[] = [
 ];
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState("");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -74,9 +75,15 @@ const Navbar = () => {
     setIsDropdownOpen(false);
   };
 
+  const handleMouseOver = (sectionLabel: string) => {
+    if (activeSection !== sectionLabel) {
+      setHoveredSection(sectionLabel);
+    }
+  };
+
   const desktopNav = (
-    <div className="hidden md:flex justify-center w-full ">
-      <ul className="flex justify-evenly px-8 w-full max-w-2xl mx-auto">
+    <div className="hidden md:flex justify-center w-full  ">
+      <ul className="flex justify-around px-8 w-full max-w-2xl mx-auto backdrop-filter backdrop-blur-lg rounded-lg shadow-lg bg-transparent">
         {sections.map((section) => {
           if (section.id === "hero") {
             return;
@@ -84,16 +91,20 @@ const Navbar = () => {
             return (
               <li
                 key={section.id}
-                className="px-4 py-2 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+                className="px-4 py-2 transition-all duration-300 underline-offset-4 decoration-transparent "
               >
                 <Link href={section.href}>
                   <button
                     name={section.label}
                     value={section.id}
                     onClick={handleClick}
-                    className={`text-white ${
+                    onMouseOver={() => handleMouseOver(section.label)}
+                    onMouseOut={() => setHoveredSection(null)}
+                    className={`hover:underline text-white ${
                       isHomePage
-                        ? activeSection === section.label
+                        ? activeSection === section.label &&
+                          (hoveredSection === activeSection ||
+                            hoveredSection === null)
                           ? "underline"
                           : ""
                         : pathname === section.href
@@ -114,7 +125,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-black flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen">
+      <nav className="bg-transparent flex justify-between items-center fixed top-0 left-0 right-0 z-50 w-screen">
         <div className="px-4 py-2">
           <Link
             href="/"
@@ -135,7 +146,7 @@ const Navbar = () => {
         {desktopNav}
         <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
           <Button
-            className="text-white px-6 py-3 bg-ghost rounded-full transition-colors duration-300"
+            className="text-white px-6 py-3 hover:bg-gray-700  rounded-full transition-colors duration-300 bg-filter backdrop-blur-lg bg-transparent "
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             {activeSection}
@@ -158,7 +169,7 @@ const Navbar = () => {
             </span>
           </Button>
           {isDropdownOpen && (
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-gray-800 text-white rounded-md shadow-lg flex flex-col justify-center">
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-white rounded-md shadow-lg flex flex-col justify-center backdrop-filter backdrop-blur-lg bg-transparent">
               {sections.map((section) => {
                 if (isHomePage && section.id === "hero") {
                   return;
@@ -169,7 +180,7 @@ const Navbar = () => {
                         key={section.id}
                         value={section.id}
                         name={section.label}
-                        className="block w-full text-left px-4 py-2 bg-black hover:bg-gray-700 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
+                        className="block w-full text-left px-4 py-2 bg-ghost hover:bg-gray-700 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
                         onClick={handleClick}
                       >
                         {section.label}
