@@ -36,18 +36,18 @@ const ServicesContainer: React.FC = () => {
   return (
     <div
       id="services"
-      className="relative w-screen h-[90vh] flex flex-col justify-center items-center scroll-mt-[58px]"
+      className="relative h-full w-full flex flex-col justify-center items-center"
     >
       <Carousel
         setApi={setApi}
-        className="w-full h-full flex"
+        className="w-full h-[90vh] flex justify-center "
         opts={{
           loop: true,
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent className="h-full w-full m-0">
           {sectionData.map((section, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="w-full h-full  p-0">
               <Service
                 service={section.service}
                 description={section.description}

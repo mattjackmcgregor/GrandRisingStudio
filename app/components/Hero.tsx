@@ -71,12 +71,12 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen w-screen flex flex-col bg-black items-center justify-center"
+      className="relative h-screen w-full flex flex-col bg-black items-center justify-center"
     >
       <div id="bg-video" className="absolute inset-0 z-0">
         <DynamicCloudinaryVideo
           publicId="heroCompressed2_znc83d"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-[100vh] object-cover opacity-60"
         />
       </div>
       <div className="relative z-10 text-center flex flex-col items-center">
