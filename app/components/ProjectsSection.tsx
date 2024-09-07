@@ -65,8 +65,8 @@ const ProjectsSection: React.FC = () => {
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious className=" " />
-            <CarouselNext className=" " />
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
           <div className="mt-4">
             <DotsIndicator

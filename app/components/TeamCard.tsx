@@ -111,8 +111,8 @@ const TeamCard: React.FC<Props> = ({
               onDotClick={(index) => api?.scrollTo(index)}
             />
           </div>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
         </Carousel>
       </div>
       <div className="w-full h-full md:w-1/2 flex flex-col justify-between md:justify-center px-4 md:px-8 ">
