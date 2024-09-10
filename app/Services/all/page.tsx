@@ -8,7 +8,7 @@ const ServiceAllPage: React.FC = () => {
     <div className="min-h-screen bg-black text-white py-16 px-4 sm:px-6 lg:px-8 pt-navbar">
       <div className=" mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:space-x-8">
-          <div className="lg:w-1/2 lg:pr-8 mb-12 lg:mb-0 lg:sticky lg:top-24 ">
+          <div className="lg:w-1/3 lg:pr-8 mb-12 lg:mb-0 lg:sticky lg:top-24 ">
             <h1 className="text-4xl font-bold mb-8 text-center lg:text-left">
               Our Services
             </h1>
@@ -22,11 +22,11 @@ const ServiceAllPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="lg:w-1/2 space-y-8">
+          <div className="lg:w-2/3 space-y-8">
             {serviceData.map((service, index) => (
               <div
                 key={service.service}
-                className="transform transition-all duration-300 hover:scale-105"
+                className="transform transition-all duration-300 hover:scale-100"
               >
                 <Link href={`/services/${service.service.toLowerCase()}`}>
                   <ServiceTile

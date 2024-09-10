@@ -2,6 +2,7 @@
   "teamData": [
     {
       "id": 1,
+      "slug": "john-doe",
       "name": "John Doe",
       "images": [
         "barberCompressedImg",
@@ -19,6 +20,7 @@
     },
     {
       "id": 2,
+      "slug": "jane-smith",
       "name": "Jane Smith",
       "images": [
         "barberCompressedImg",
@@ -42,6 +44,7 @@
     },
     {
       "id": 3,
+      "slug": "michael-johnson",
       "name": "Michael Johnson",
       "images": [
         "tattooCompressedImg",

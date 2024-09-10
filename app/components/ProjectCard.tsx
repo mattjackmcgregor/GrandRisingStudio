@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import dynamic from "next/dynamic";
 
@@ -40,7 +38,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <h3 className="text-xl text-center font-bold text-white mb-2">
             {project.title}
           </h3>
-          <p className="text-xs text-gray-200  mb-3">{project.subtitle}</p>
+          <p className="text-xs text-gray-200 text-center  mb-3">
+            {project.subtitle}
+          </p>
           <p className="text-sm text-white text-center mb-4 line-clamp-3 ">
             {project.description}
           </p>
