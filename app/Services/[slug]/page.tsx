@@ -29,26 +29,28 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8">{service.service}</h1>
+    <div className="min-h-screen bg-black text-white pt-navbar md:px-8">
+      <div className=" mx-auto  py-12">
+        <h1 className="text-4xl px-4 md:px-0 font-bold mb-8">
+          {service.service}
+        </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div>
             <DynamicCloudinaryVideoService
               publicId={service.videoUrl}
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-64 object-cover "
             />
           </div>
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="text-2xl font-semibold px-4 md:px-0 mb-4">
               About Our {service.service}
             </h2>
-            <p className="text-gray-300">{service.description}</p>
+            <p className="text-gray-300 px-4 md:px-0">{service.description}</p>
           </div>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-12 px-4 md:px-0">
           <h2 className="text-2xl font-semibold mb-4">What to Expect</h2>
           <ul className="list-disc pl-5 text-gray-300">
             <li>Consultation to understand your preferences</li>
@@ -58,7 +60,7 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
           </ul>
         </div>
 
-        <div className="mb-12">
+        <div className="mb-12 px-4 md:px-0">
           <h2 className="text-2xl font-semibold mb-4">
             Our {service.service} Specialists
           </h2>
@@ -88,8 +90,8 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Our Work</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-2xl font-semibold px-4 md:px-0 mb-4">Our Work</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 px-4 md:px-0 gap-4">
             {/* Replace with actual data */}
             {[1, 2, 3, 4, 5, 6, 7, 8].map((work) => (
               <CloudinaryImage
@@ -98,7 +100,7 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
                 alt={`Work sample ${work}`}
                 width={300}
                 height={300}
-                extraClasses="w-full h-48 object-cover rounded-lg"
+                extraClasses="w-full h-48 object-cover  rounded-lg"
               />
             ))}
           </div>

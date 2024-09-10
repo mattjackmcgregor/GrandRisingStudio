@@ -80,3 +80,31 @@
     @apply w-8 h-8 bg-contain bg-no-repeat bg-[url('/arrow-down.svg')];
   }
 }
+
+.pt-navbar {
+  padding-top: 4rem; /* Adjust this value based on your navbar height */
+}
+
+@media (min-width: 640px) {
+  .pt-navbar {
+    padding-top: 4rem; /* For sm breakpoint */
+  }
+}
+
+@media (min-width: 768px) {
+  .pt-navbar {
+    padding-top: 5rem; /* For md breakpoint */
+  }
+}
+
+@media (min-width: 1024px) {
+  .pt-navbar {
+    padding-top: 6rem; /* For lg breakpoint */
+  }
+}
+
+@media (min-width: 1280px) {
+  .pt-navbar {
+    padding-top: 7rem; /* For xl breakpoint */
+  }
+}
