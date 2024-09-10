@@ -14,22 +14,32 @@ const CloudinaryVideoService: React.FC<CloudinaryVideoServiceProps> = ({
 }) => {
   const { cld } = useCloudinary();
 
-  const videoSource = cld
-    .video(publicId)
-    .delivery(quality("auto"))
-    .format("auto");
+  if (!cld) {
+    console.error("Cloudinary instance not initialized");
+    return null;
+  }
 
-  return (
-    <AdvancedVideo
-      cldVid={videoSource}
-      className={className}
-      muted
-      loop
-      playsInline
-      autoPlay
-      controls={false}
-    />
-  );
+  try {
+    const videoSource = cld
+      .video(publicId)
+      .delivery(quality("auto"))
+      .format("auto");
+
+    return (
+      <AdvancedVideo
+        cldVid={videoSource}
+        className={className}
+        muted
+        loop
+        playsInline
+        autoPlay
+        controls={false}
+      />
+    );
+  } catch (error) {
+    console.error("Error creating Cloudinary video:", error);
+    return null;
+  }
 };
 
 export default CloudinaryVideoService;

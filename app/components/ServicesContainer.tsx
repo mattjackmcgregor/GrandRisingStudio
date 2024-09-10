@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Service from "./Service";
-import { sectionData } from "@/data/serviceData";
+import { serviceData } from "@/data/serviceData";
 import SwipeIndicator from "./SwipeIndicator";
 import DotsIndicator from "./DotsIndicator";
 
@@ -46,7 +46,7 @@ const ServicesContainer: React.FC = () => {
         }}
       >
         <CarouselContent className="h-full w-full m-0">
-          {sectionData.map((section, index) => (
+          {serviceData.map((section, index) => (
             <CarouselItem key={index} className="w-full h-full  p-0">
               <Service
                 service={section.service}
