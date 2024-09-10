@@ -41,8 +41,8 @@ const ProjectsSection: React.FC = () => {
         <h2 className="text-3xl font-bold mb-8 text-center text-white">
           Featured Projects
         </h2>
-        <div className="w-[90vw] flex flex-col justify-center">
-          <Carousel setApi={setApi} className="mx-8">
+        <div className=" w-full md:w-[90vw] flex flex-col justify-center">
+          <Carousel setApi={setApi} className="md:mx-8">
             <CarouselContent className="">
               {projectData.map((project) => (
                 <CarouselItem

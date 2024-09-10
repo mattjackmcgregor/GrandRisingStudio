@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import type { CarouselApi } from "@/components/ui/carousel";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import CloudinaryImage from "./CloudinaryImage";
 
 const DynamicCloudinaryImage = dynamic(() => import("./CloudinaryImage"), {
   ssr: false,
@@ -116,29 +117,46 @@ const TeamCard: React.FC<Props> = ({
           <CarouselNext className="right-4" />
         </Carousel>
       </div>
-      <div className="w-full h-full md:w-1/2 flex flex-col justify-between md:justify-center px-4 md:px-8 ">
-        <div className="flex flex-col items-center md:items-start mb-4 md:mb-10">
-          <h1 className="text-center md:text-left text-3xl md:text-4xl">
+      <div className="w-full h-full relative md:w-1/2 flex flex-col justify-between md:justify-center px-4 md:px-8 ">
+        <div className=" inset-0 absolute flex items-center justify-center opacity-15">
+          <CloudinaryImage
+            src="/compressedLogo_lq4ksg"
+            alt="logo"
+            height={800}
+            width={800}
+            extraClasses="object-cover"
+          />
+        </div>
+        {/* Blur Overlay */}
+        <div className="flex flex-col items-center md:items-start mb-4 md:mb-10 z-10 space-y-4 md:space-y-6">
+          <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold">
             {name}
           </h1>
-          <h2 className="text-center md:text-left mb-2 md:mb-4 pb-2 md:pb-4 pt-2 text-sm">
+          <h2 className="text-center text-gray-300 md:text-left text-sm md:text-base">
             {services.join(" | ")}
           </h2>
-          <p className="text-center md:text-left text-sm md:text-base md:max-h-none overflow-y-auto">
-            {description}
-          </p>
-          <div className="flex flex-col items-center md:items-start mt-2 md:mt-5">
-            <p className="text-sm md:text-base ">Contact {name}</p>
-            <div className="flex flex-row flex-wrap justify-center md:justify-start ">
+          <div className="space-y-2 md:space-y-4">
+            {description.split("\n").map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-center md:text-left text-sm md:text-base"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className="flex flex-col items-center md:items-start space-y-2">
+            <p className="text-sm md:text-base font-semibold">Contact {name}</p>
+            <div className="flex flex-row flex-wrap justify-center md:justify-start gap-2">
               {socialMediaLinks}
             </div>
           </div>
         </div>
-        <div className="flex justify-between mt-2 lg:mt-0">
+        <div className="flex justify-between mt-4 lg:mt-6">
           <Button
             onClick={onPrevTeamMember}
             size="sm"
-            className="text-xs lg:text-sm  bg-transparent  hover:bg-transparent  transition-all "
+            className="text-xs lg:text-sm bg-transparent hover:bg-transparent transition-all"
           >
             <div className="flex items-center relative group">
               <p className="mr-1 transition-all group-hover:translate-x-[-4px] group-hover:duration-200">
