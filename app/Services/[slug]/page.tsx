@@ -35,31 +35,47 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
           {service.service}
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
-            <DynamicCloudinaryVideoService
-              publicId={service.videoUrl}
-              className="w-full h-64 object-cover "
+        <div className="relative">
+          {/* Background stamp image */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-15 pointer-events-none">
+            <CloudinaryImage
+              src="/compressedLogo_lq4ksg"
+              alt="logo"
+              height={800}
+              width={800}
+              extraClasses="object-cover w-full h-full"
             />
           </div>
-          <div>
-            <h2 className="text-2xl font-semibold px-4 md:px-0 mb-4">
-              About Our {service.service}
-            </h2>
-            <p className="text-gray-300 px-4 md:px-0">{service.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12  relative z-10">
+            <div>
+              <DynamicCloudinaryVideoService
+                publicId={service.videoUrl}
+                className="w-full h-64 object-cover "
+              />
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold px-4 md:px-0 mb-4">
+                About Our {service.service}
+              </h2>
+              <p className="text-gray-300 px-4 md:px-0">
+                {service.description}
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-12 px-4 md:px-0">
+            <h2 className="text-2xl font-semibold mb-4">What to Expect</h2>
+            <ul className="list-disc pl-5 text-gray-300">
+              <li>Consultation to understand your preferences</li>
+              <li>
+                Professional service using high-quality tools and products
+              </li>
+              <li>Styling advice and product recommendations</li>
+              <li>Follow-up care instructions</li>
+            </ul>
           </div>
         </div>
-
-        <div className="mb-12 px-4 md:px-0">
-          <h2 className="text-2xl font-semibold mb-4">What to Expect</h2>
-          <ul className="list-disc pl-5 text-gray-300">
-            <li>Consultation to understand your preferences</li>
-            <li>Professional service using high-quality tools and products</li>
-            <li>Styling advice and product recommendations</li>
-            <li>Follow-up care instructions</li>
-          </ul>
-        </div>
-
         <div className="mb-12 px-4 md:px-0">
           <h2 className="text-2xl font-semibold mb-4">
             Our {service.service} Specialists

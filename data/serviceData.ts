@@ -2,7 +2,7 @@ export const serviceData = [
   {
     service: "Barber",
     description:
-      "Sickest cuts in the game. sometimes hori, somethimes good. nach just Kidding but they alowaays booked up. thye on.",
+      "Sickest cuts in the game. sometimes hori, somethimes good. nach just Kidding but they alowaays booked up. thye on. \n Sickest cuts in the game. sometimes hori, somethimes good. nach just Kidding but they alowaays booked up. thye on. \nSickest cuts in the game. sometimes hori, somethimes good. nach just Kidding but they alowaays booked up. thye on. \nSickest cuts in the game. sometimes hori, somethimes good. \n nach just Kidding but they alowaays booked up. thye on. \n Sickest cuts in the game. \n sometimes hori, somethimes good. nach just Kidding but they alowaays booked up. thye on. \n",
     videoUrl: "sampleBarberCompressed2_sbysnm",
     specialists: [
       {
