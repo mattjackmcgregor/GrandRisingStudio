@@ -41,9 +41,9 @@ const ProjectsSection: React.FC = () => {
         <h2 className="text-3xl font-bold mb-8 text-center text-white">
           Featured Projects
         </h2>
-        <div className="w-[90vw] flex flex-col">
-          <Carousel setApi={setApi}>
-            <CarouselContent>
+        <div className="w-[90vw] flex flex-col justify-center">
+          <Carousel setApi={setApi} className="mx-8">
+            <CarouselContent className="">
               {projectData.map((project) => (
                 <CarouselItem
                   key={project.id}
@@ -54,10 +54,19 @@ const ProjectsSection: React.FC = () => {
                   </Link>
                 </CarouselItem>
               ))}
+              <CarouselItem className="pl-4   h-[70vh] sm:w-64 md:w-72 lg:w-80 xl:w-96 max-w-sm flex justify-center items-center bg-gradient-to-b from-black to-gray-800 ">
+                <Link href="/projects/all">
+                  <div className=" rounded-lg p-4 h-full ">
+                    <h3 className="text-lg font-bold text-white text-center hover:underline">
+                      See All Projects
+                    </h3>
+                  </div>
+                </Link>
+              </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious className="top-1/3 " />
-            <CarouselNext className="top-1/3  " />
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
           <div className="mt-4">
             <DotsIndicator

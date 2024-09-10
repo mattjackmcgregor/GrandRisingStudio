@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
-import ArrowComponent from "./ArrowComponent";
 import dynamic from "next/dynamic";
 import MouseScrollIcon from "./MouseScrollIcon";
 import { useCloudinary } from "../hooks/useCloudinary";
@@ -16,6 +15,8 @@ const DynamicCloudinaryVideo = dynamic(() => import("./CloudinaryVideo"), {
 const Hero = () => {
   const h1Ref = useRef(null);
   const { getVideoUrl } = useCloudinary();
+  const mouseScrollIconRef = useRef(null);
+
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
@@ -41,22 +42,41 @@ const Hero = () => {
       });
     };
 
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 0) {
+        gsap.to(mouseScrollIconRef.current, {
+          opacity: 0,
+          duration: 0.5,
+        });
+      } else {
+        gsap.to(mouseScrollIconRef.current, {
+          opacity: 1,
+          duration: 0.5,
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative h-screen w-screen flex flex-col bg-black items-center justify-center"
+      className="relative h-screen w-full flex flex-col bg-black items-center justify-center"
     >
       <div id="bg-video" className="absolute inset-0 z-0">
         <DynamicCloudinaryVideo
           publicId="heroCompressed2_znc83d"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-[100vh] object-cover opacity-60"
         />
       </div>
       <div className="relative z-10 text-center flex flex-col items-center">
@@ -77,8 +97,9 @@ const Hero = () => {
         <h2 className="text-white text-sm mb-8">Barber | Tattoo | Design</h2>
         <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300" />
       </div>
-      {/* <ArrowComponent /> */}
-      <MouseScrollIcon />
+      <div ref={mouseScrollIconRef}>
+        <MouseScrollIcon />
+      </div>
     </section>
   );
 };

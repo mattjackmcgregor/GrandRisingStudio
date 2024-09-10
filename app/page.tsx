@@ -7,8 +7,7 @@ import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
-      <Navbar />
+    <main className=" bg-black text-white flex flex-col justify-center mx-auto">
       <Hero />
       <ServicesContainer />
       <TeamOverviewContainer />
@@ -20,5 +19,6 @@ export default function Home() {
       <Footer />
       <Footer />
     </main>
+    // </LayoutWrapper>
   );
 }

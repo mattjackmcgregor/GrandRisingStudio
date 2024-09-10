@@ -1,4 +1,4 @@
-export const sectionData = [
+export const serviceData = [
   {
     service: "Barber",
     description:

@@ -12,6 +12,7 @@ import DotsIndicator from "./DotsIndicator";
 import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import type { CarouselApi } from "@/components/ui/carousel";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const DynamicCloudinaryImage = dynamic(() => import("./CloudinaryImage"), {
   ssr: false,
@@ -78,10 +79,10 @@ const TeamCard: React.FC<Props> = ({
     () =>
       Object.entries(socialMediaHandles).map(([key, value], index, array) => (
         <a key={key} href={value} className="text-sm">
-          <p>
-            {key}
+          <div className="flex items-center">
+            <p className="hover:underline">{key}</p>
             {index < array.length - 1 && <span className="mx-1">|</span>}
-          </p>
+          </div>
         </a>
       )),
     [socialMediaHandles]
@@ -90,7 +91,13 @@ const TeamCard: React.FC<Props> = ({
   return (
     <div className="w-full h-full flex flex-col md:flex-row items-center space-y-10 px-4">
       <div className="w-full md:w-1/2 h-full ">
-        <Carousel setApi={setApi} className="w-full h-full ">
+        <Carousel
+          setApi={setApi}
+          opts={{
+            loop: true,
+          }}
+          className="w-full h-full "
+        >
           <CarouselContent className="-ml-0 h-full">
             {cloudinaryImages.map((image, index) => (
               <CarouselItem key={index} className="pl-0 h-[50vh] md:h-[80vh]">
@@ -105,8 +112,8 @@ const TeamCard: React.FC<Props> = ({
               onDotClick={(index) => api?.scrollTo(index)}
             />
           </div>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
         </Carousel>
       </div>
       <div className="w-full h-full md:w-1/2 flex flex-col justify-between md:justify-center px-4 md:px-8 ">
@@ -121,8 +128,8 @@ const TeamCard: React.FC<Props> = ({
             {description}
           </p>
           <div className="flex flex-col items-center md:items-start mt-2 md:mt-5">
-            <p className="text-sm md:text-base">Contact {name}</p>
-            <div className="flex flex-row flex-wrap justify-center md:justify-start">
+            <p className="text-sm md:text-base ">Contact {name}</p>
+            <div className="flex flex-row flex-wrap justify-center md:justify-start ">
               {socialMediaLinks}
             </div>
           </div>
@@ -131,16 +138,26 @@ const TeamCard: React.FC<Props> = ({
           <Button
             onClick={onPrevTeamMember}
             size="sm"
-            className="text-xs lg:text-sm"
+            className="text-xs lg:text-sm  bg-transparent  hover:bg-transparent  transition-all "
           >
-            {"<"} {prevTeamMember}
+            <div className="flex items-center relative group">
+              <p className="mr-1 transition-all group-hover:translate-x-[-4px] group-hover:duration-200">
+                {"<"}
+              </p>
+              <p className="hover:underline">{prevTeamMember}</p>
+            </div>
           </Button>
           <Button
             onClick={onNextTeamMember}
             size="sm"
-            className="text-xs lg:text-sm"
+            className="text-xs lg:text-sm bg-transparent hover:bg-transparent transition-all"
           >
-            {nextTeamMember} {">"}
+            <div className="flex items-center relative group">
+              <p className="hover:underline">{nextTeamMember}</p>
+              <p className="ml-1 transition-all group-hover:translate-x-[4px] group-hover:duration-200">
+                {">"}
+              </p>
+            </div>
           </Button>
         </div>
       </div>
