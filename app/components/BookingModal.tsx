@@ -9,8 +9,8 @@ export const BookingModal = ({ onClose }: Props) => {
   return (
     <div className="flex justify-center items-center fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-20">
       <div className="border-2 border-gray-300 flex flex-col justify-center items-center rounded text-center h-3/4 w-11/12 max-w-3xl z-50 ">
-        <div className="flex flex-row items-center justify-between w-full ">
-          <p className="p-4">GRANDRISINGSTUDIOS©</p>
+        <div className="flex flex-row items-center justify-between w-full bg-transparent backdrop-filter backdrop-blur-lg ">
+          <p className="p-4 text-gray-300">GRANDRISINGSTUDIOS©</p>
           <span
             onClick={onClose}
             className=" relative top-0 right-0 p-4 cursor-pointer"

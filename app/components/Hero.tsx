@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
 import dynamic from "next/dynamic";
@@ -68,25 +68,38 @@ const Hero = () => {
     };
   }, []);
 
+  const HeroVideo = useMemo(() => {
+    return (
+      <DynamicCloudinaryVideo
+        publicId="heroCompressed2_znc83d"
+        className="w-full h-[100vh] object-cover opacity-60"
+      />
+    );
+  }, []);
+
+  const HeroImage = useMemo(() => {
+    return (
+      <Image
+        src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
+        alt="grand rising logo"
+        height={220}
+        width={220}
+        priority
+        loading="eager"
+      />
+    );
+  }, []);
+
   return (
     <section
       id="hero"
       className="relative h-screen w-full flex flex-col bg-black items-center justify-center"
     >
       <div id="bg-video" className="absolute inset-0 z-0">
-        <DynamicCloudinaryVideo
-          publicId="heroCompressed2_znc83d"
-          className="w-full h-[100vh] object-cover opacity-60"
-        />
+        {HeroVideo}
       </div>
       <div className="relative z-10 text-center flex flex-col items-center">
-        <Image
-          src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
-          alt="grand rising logo"
-          height={220}
-          width={220}
-          priority
-        />
+        {HeroImage}
         <h1
           ref={h1Ref}
           className="text-white text-4xl mb-4"
@@ -104,4 +117,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);
