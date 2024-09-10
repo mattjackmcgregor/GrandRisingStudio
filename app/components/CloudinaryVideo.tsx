@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { AdvancedVideo } from "@cloudinary/react";
 import { useCloudinary } from "../hooks/useCloudinary";

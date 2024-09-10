@@ -71,10 +71,10 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
   }, [project]);
 
   return (
-    <div className="min-h-screen bg-black text-white ">
+    <div className="min-h-screen bg-black text-white pt-navbar ">
       <div
         ref={projectTagRef}
-        className="fixed top-16 left-4 z-10 backdrop-blur-lg"
+        className="fixed top-18 left-4 z-10 backdrop-blur-lg "
       >
         <Link
           href="/"
@@ -83,7 +83,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
           <ArrowLeft className="mr-2" />
           Back to Projects
         </Link>
-        <div className="bg-opacity-70 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg p-4 max-w-xs">
+        <div className="bg-opacity-70 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg px-4 max-w-xs">
           <h2 className="text-lg font-semibold text-white mb-2">
             {project.title}
           </h2>
@@ -101,7 +101,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
         </div>
       </div>
 
-      <main ref={contentRef} className=" px-4 py-14">
+      <main ref={contentRef} className=" md:px-4 py-14">
         {project.images && project.images.length > 0 && (
           <div className=" -top-12 w-full h-[33vh] md:w-[66vw] md:pl-2 md:pb-1 float-right">
             <CloudinaryImage
@@ -114,13 +114,13 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
           </div>
         )}
 
-        <section className="mb-12 mt-40 md:pl-1 md:pr-3">
+        <section className="mb-12 mt-40 md:pl-1 px-4  md:pr-3">
           {/* <ExpandableDescription description={project.fullDescription} /> */}
           <p className="text-lg text-gray-300">{project.fullDescription}</p>
         </section>
 
         {project.videos && (
-          <section className="mb-12">
+          <section className="mb-12 sm:px-4 md:px-0">
             <h2 className="text-2xl font-semibold mb-4 text-white">
               Project Video
             </h2>
@@ -134,11 +134,11 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
             ))}
           </section>
         )}
-        <h2 className="text-2xl font-semibold mb-4 text-white">
+        <h2 className="text-2xl font-semibold mb-4 sm:px-4 md:px-0 text-white">
           Project Photos
         </h2>
         {project.images && project.images.length > 1 && (
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 sm:px-4 md:px-0">
             {project.images.slice(1).map((image, index) => (
               <div
                 key={index}
@@ -158,7 +158,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
         )}
 
         {project.testimonial && (
-          <section className="bg-gray-800 rounded-lg shadow-lg p-6 mb-12">
+          <section className="bg-gray-800 rounded-lg shadow-lg py-6  sm:px-4 md:px-0 mb-12">
             <h2 className="text-2xl font-semibold mb-4 text-white">
               Client Testimonial
             </h2>

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import dynamic from "next/dynamic";
 import CloudinaryImage from "./CloudinaryImage";
@@ -22,7 +20,7 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
 }) => {
   return (
     <div className="relative group">
-      <div className="relative bg-transparent rounded-lg overflow-hidden backdrop-filter backdrop-blur-lg border border-gray-600 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+      <div className="relative bg-transparent h-full  overflow-hidden backdrop-filter backdrop-blur-lg border border-gray-600 transform hover:scale-105 transition-all duration-300 cursor-pointer">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 p-6 relative overflow-hidden">
             {/* Background Image */}
@@ -43,7 +41,7 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
               <p className="text-gray-300">{description}</p>
             </div>
           </div>
-          <div className="md:w-1/2 h-64 md:h-auto">
+          <div className="md:w-1/2 h-64 md:min-h-64 md:h-auto">
             {videoUrl ? (
               <DynamicCloudinaryVideoService
                 publicId={videoUrl}
