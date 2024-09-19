@@ -54,8 +54,8 @@ const ContactComponent: React.FC = () => {
           <h2 className="pb-8 text-4xl">Wanting to get in contact with us?</h2>
           <p className="pb-8">
             Either flick us a message on one of our socials, drop by the studio
-            (during normal business hours) or fill out the form below and we'll
-            get back to you.
+            (during normal business hours) or fill out the form below and
+            we&apos;ll get back to you.
           </p>
           <div className="flex flex-col pb-4 justify-center">
             <a
