@@ -73,11 +73,27 @@ const config = {
           "10%": { transform: "translateY(0)", opacity: "1" },
           "100%": { transform: "translateY(15px)", opacity: "0" },
         },
+        dot1: {
+          "0%, 100%": { opacity: "0" },
+          "20%, 90%": { opacity: "1" },
+        },
+        dot2: {
+          "0%, 100%": { opacity: "0" },
+          "40%, 80%": { opacity: "1 " },
+        },
+        dot3: {
+          "0%, 100%": { opacity: "0" },
+          "60%, 70%": { opacity: "1" },
+        },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         scroll: "scroll 2.2s cubic-bezier(.15,.41,.69,.94) infinite",
+        dot1: "dot1 1.5s infinite",
+        dot2: "dot2 1.5s infinite",
+        dot3: "dot3 1.5s infinite",
       },
     },
   },

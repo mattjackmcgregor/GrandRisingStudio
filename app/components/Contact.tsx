@@ -16,6 +16,8 @@ const ContactComponent: React.FC = () => {
     message: "",
   });
 
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSucess] = useState<Boolean | null>(null);
   const formRef = useRef(null);
 
   const handleChange = (
@@ -26,6 +28,7 @@ const ContactComponent: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setSubmitting(true);
     e.preventDefault();
     try {
       const response = await fetch("/api/send-email", {
@@ -36,14 +39,16 @@ const ContactComponent: React.FC = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert("Message sent successfully!");
+        setSubmitting(false);
+        setSubmitSucess(true);
         setFormData({ name: "", email: "", message: "" });
       } else {
         throw new Error("Failed to send message");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to send message. Please try again later.");
+      setSubmitting(false);
+      setSubmitSucess(false);
     }
   };
 
@@ -136,10 +141,34 @@ const ContactComponent: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none"
+            className={`${
+              submitting ? "cursor-not-allowed bg-gray-600" : ""
+            } w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none relative`}
           >
-            Send Message
+            {submitting ? (
+              <>
+                Sending
+                <span className="absolute inline-flex">
+                  <span className="animate-dot1">.</span>
+                  <span className="animate-dot2">.</span>
+                  <span className="animate-dot3">.</span>
+                </span>
+              </>
+            ) : (
+              "Send Message"
+            )}
           </button>
+          {submitSuccess !== null && (
+            <p
+              className={`${
+                submitSuccess ? "text-green-700" : "text-red-700"
+              } italic  `}
+            >
+              {submitSuccess
+                ? "Message sent successfully!"
+                : "Error sending message"}
+            </p>
+          )}
         </form>
       </div>
       <div className="w-full max-w-2xl sm:w-1/2 order-1 sm:order-2 flex items-center justify-center p-8">
