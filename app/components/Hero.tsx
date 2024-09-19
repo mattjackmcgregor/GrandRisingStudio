@@ -6,7 +6,6 @@ import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
 import dynamic from "next/dynamic";
 import MouseScrollIcon from "./MouseScrollIcon";
-import { useCloudinary } from "../hooks/useCloudinary";
 
 const DynamicCloudinaryVideo = dynamic(() => import("./CloudinaryVideo"), {
   ssr: false,
@@ -14,7 +13,6 @@ const DynamicCloudinaryVideo = dynamic(() => import("./CloudinaryVideo"), {
 
 const Hero = () => {
   const h1Ref = useRef(null);
-  const { getVideoUrl } = useCloudinary();
   const mouseScrollIconRef = useRef(null);
 
   useEffect(() => {

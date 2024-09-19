@@ -36,8 +36,8 @@ const ServiceTile: React.FC<ServiceTileProps> = ({
             {/* Blur Overlay */}
             <div className="absolute inset-0 backdrop-filter backdrop-blur-sm"></div>
             {/* Content */}
-            <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-4 text-white">{title}</h2>
+            <div className="relative z-10 text-center md:text-left">
+              <h2 className="text-2xl font-bold mb-4 t text-white">{title}</h2>
               <p className="text-gray-300">{description}</p>
             </div>
           </div>
