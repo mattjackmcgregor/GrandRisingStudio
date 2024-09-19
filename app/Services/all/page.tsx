@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { serviceData } from "@/data/serviceData";
-import ServiceTile from "../../components/ServiceTile";
+import DisplayTile from "../../components/DisplayTile";
 
 const ServiceAllPage: React.FC = () => {
   return (
@@ -29,7 +29,7 @@ const ServiceAllPage: React.FC = () => {
                 className="transform transition-all duration-300 hover:scale-100"
               >
                 <Link href={`/services/${service.service.toLowerCase()}`}>
-                  <ServiceTile
+                  <DisplayTile
                     title={service.service}
                     description={service.description}
                     videoUrl={service.videoUrl}

@@ -4,6 +4,10 @@
       "id": 1,
       "slug": "john-doe",
       "name": "John Doe",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "barberCompressedImg",
         "tattooCompressedImg",
@@ -22,6 +26,10 @@
       "id": 2,
       "slug": "jane-smith",
       "name": "Jane Smith",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "barberCompressedImg",
         "tattooCompressedImg",
@@ -46,6 +54,10 @@
       "id": 3,
       "slug": "michael-johnson",
       "name": "Michael Johnson",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "tattooCompressedImg",
         "tattooCompressedImg",
