@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import dynamic from "next/dynamic";
 
@@ -36,11 +34,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
       {/* Glassmorphic Panel */}
       <div className="absolute inset-0 flex items-center justify-center p-6">
-        <div className="bgtransparent flex flex-col justify-center items-center  backdrop-filter backdrop-blur-lg rounded-md p-6 w-5/6 max-w-sm transition-al transition-transform duration-300 group-hover:bg-black group-hover:bg-opacity-30">
+        <div className="bg-transparent flex flex-col justify-center items-center backdrop-filter backdrop-blur-lg rounded-md p-6 w-5/6 max-w-sm transition-al transition-transform duration-300 group-hover:bg-black group-hover:bg-opacity-30">
           <h3 className="text-xl text-center font-bold text-white mb-2">
             {project.title}
           </h3>
-          <p className="text-xs text-gray-200  mb-3">{project.subtitle}</p>
+          <p className="text-xs text-gray-200 text-center  mb-3">
+            {project.subtitle}
+          </p>
           <p className="text-sm text-white text-center mb-4 line-clamp-3 ">
             {project.description}
           </p>

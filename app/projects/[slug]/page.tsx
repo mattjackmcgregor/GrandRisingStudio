@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import projectsData from "../../../data/projectsData.json";
-import ClientProjectPage from "@/app/components/ClientProjectPage";
+import ClientProjectPage from "./ClientProjectPage";
 
 export async function generateStaticParams() {
   return projectsData.map((project) => ({

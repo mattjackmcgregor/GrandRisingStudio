@@ -2,7 +2,12 @@
   "teamData": [
     {
       "id": 1,
+      "slug": "john-doe",
       "name": "John Doe",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "barberCompressedImg",
         "tattooCompressedImg",
@@ -10,7 +15,7 @@
         "tattooCompressedImg"
       ],
       "services": ["Web Development", "UI/UX Design", "Consulting"],
-      "description": "John is a seasoned web developer with over 10 years of experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design. experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design",
+      "description": "John is a seasoned web developer with over 10 years of experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design. experience in building responsive and user-friendly websites. \n He specializes in front-end development and has a keen eye for design experience in building responsive and user-friendly websites. \n He specializes in front-end development and has a keen eye for design",
       "socialMediaHandles": {
         "twitter": "https://twitter.com/johndoe",
         "linkedin": "https://linkedin.com/in/johndoe",
@@ -19,7 +24,12 @@
     },
     {
       "id": 2,
+      "slug": "jane-smith",
       "name": "Jane Smith",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "barberCompressedImg",
         "tattooCompressedImg",
@@ -33,7 +43,7 @@
         "Social Media Management",
         "Content Creation"
       ],
-      "description": "Jane is a digital marketing expert with a proven track record of driving growth and engagement for businesses across various industries. She excels in creating compelling content and executing effective social media strategies.",
+      "description": "Jane is a digital marketing expert with a proven track record of driving growth and engagement for businesses across various industries.\n She excels in creating compelling content and executing effective social media strategies.",
       "socialMediaHandles": {
         "twitter": "https://twitter.com/janesmith",
         "instagram": "https://instagram.com/janesmith",
@@ -42,7 +52,12 @@
     },
     {
       "id": 3,
+      "slug": "michael-johnson",
       "name": "Michael Johnson",
+      "profile_image": {
+        "url": "barberCompressedImg",
+        "alt": "Profile pic"
+      },
       "images": [
         "tattooCompressedImg",
         "tattooCompressedImg",
@@ -50,7 +65,7 @@
         "barberCompressedImg"
       ],
       "services": ["Graphic Design", "Branding", "Print Design"],
-      "description": "Michael is a talented graphic designer with a passion for creating visually stunning designs that captivate audiences. He has a keen eye for detail and a deep understanding of branding principles.",
+      "description": "Michael is a talented graphic designer with a passion for creating visually stunning designs that captivate audiences.\n He has a keen eye for detail and a deep understanding of branding principles.",
       "socialMediaHandles": {
         "behance": "https://behance.net/michaeljohnson",
         "dribbble": "https://dribbble.com/michaeljohnson",

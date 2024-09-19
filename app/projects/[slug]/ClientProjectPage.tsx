@@ -5,8 +5,8 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowLeft } from "lucide-react";
-import CloudinaryImage from "./CloudinaryImage";
-import CloudinaryVideo from "./CloudinaryVideo";
+import CloudinaryImage from "../../components/CloudinaryImage";
+import CloudinaryVideo from "../../components/CloudinaryVideo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +77,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
         className="fixed top-18 left-4 z-10 backdrop-blur-lg "
       >
         <Link
-          href="/"
+          href="/projects/all"
           className="flex items-center text-white text-sm hover:text-gray-300 transition-colors"
         >
           <ArrowLeft className="mr-2" />
