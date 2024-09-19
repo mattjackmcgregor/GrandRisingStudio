@@ -1,55 +1,32 @@
 import Image from "next/image";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Footer = () => (
-  <footer className="bg-slate-950 text-white py-6">
-    <div className="container mx-auto flex flex-col md:flex-row sm:flex-wrap items-center justify-between px-8 border-t border-gray-700">
-      <div className="flex md:w-1/3 justify-center items-center mt-4 md:mt-0">
+  <footer className="bg-slate-950 text-white py-4">
+    <div className="px-16 flex flex-col md:flex-row sm:flex-wrap items-center justify-between px-8 border-t border-gray-700">
+      <div className="flex md:w-1/3 space-x-4 ">
         <a
-          href="https://www.instagram.com/grandrising.studios/"
+          href="https://instagram.com/grandrisingstudios"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white mx-2 hover:text-gray-500"
+          className="text-xl mt-4 hover:text-pink-500 transition-colors duration-300"
         >
-          <Image
-            src="/ig-logo-inverse.svg"
-            alt="Instagram"
-            width={30}
-            height={30}
-            loading="lazy"
-          />
+          <FaInstagram />
         </a>
         <a
-          href="https://www.facebook.com/people/Grand-Rising-Studio/100063896923567/"
+          href="https://facebook.com/grandrisingstudios"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white mx-2 hover:text-gray-500"
+          className="text-xl mt-4  hover:text-blue-500 transition-colors duration-300"
         >
-          <Image
-            src="/facebook-logo.svg"
-            alt="Facebook"
-            width={30}
-            height={30}
-            loading="lazy"
-          />
-        </a>
-        <a
-          href="https://www.tiktok.com/@grandrising.studio"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white mx-2 hover:text-gray-500"
-        >
-          <Image
-            src="/tiktok-logo.svg"
-            alt="TikTok"
-            width={30}
-            height={30}
-            loading="lazy"
-          />
+          <FaFacebook />
         </a>
       </div>
-      <p className="text-center md:text-start text-gray-400 mt-4">
-        GRANDRISINGSTUDIOS{new Date().getFullYear()}&copy;
-      </p>
+      <div className="flex justify-ceter items-center">
+        <p className="text-center md:text-start text-gray-400 mt-4">
+          GRANDRISINGSTUDIOS{new Date().getFullYear()}&copy;
+        </p>
+      </div>
     </div>
   </footer>
 );

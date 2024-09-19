@@ -56,7 +56,7 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
 
             <div>
               <h2 className="text-2xl font-semibold px-4 md:px-0 mb-4">
-                About Our {service.service}
+                Our {service.service} Service
               </h2>
               <p className="text-gray-300 px-4 md:px-0">
                 {service.description}

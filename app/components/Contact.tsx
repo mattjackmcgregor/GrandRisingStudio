@@ -2,8 +2,12 @@
 
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import React, { useState, useRef } from "react";
+import dynamic from "next/dynamic";
+
+const DynamicCloudinaryImage = dynamic(() => import("./CloudinaryImage"), {
+  ssr: false,
+});
 
 const ContactComponent: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,9 +16,6 @@ const ContactComponent: React.FC = () => {
     message: "",
   });
 
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const socialIconsRef = useRef(null);
   const formRef = useRef(null);
 
   const handleChange = (
@@ -47,51 +48,50 @@ const ContactComponent: React.FC = () => {
   };
 
   return (
-    <section className="bg-black text-white py-16 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto">
-        <h2 ref={titleRef} className="text-4xl font-bold mb-4 text-center">
-          Get in Touch
-        </h2>
-        <p ref={descriptionRef} className="text-xl mb-8 text-center">
-          Have a question or want to book an appointment? Reach out to us on
-          social media or fill out the form below.
-        </p>
-
-        <div
-          ref={socialIconsRef}
-          className="flex justify-center space-x-8 mb-12"
-        >
-          <a
-            href="https://instagram.com/grandrisingstudios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-3xl hover:text-pink-500 transition-colors duration-300"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://facebook.com/grandrisingstudios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-3xl hover:text-blue-500 transition-colors duration-300"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            href="https://twitter.com/grandrisingstudios"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-3xl hover:text-blue-400 transition-colors duration-300"
-          >
-            <FaTwitter />
-          </a>
+    <section className="bg-black text-white px-4 md:px-8 flex flex-col justify-center pt-16 sm:flex-row">
+      <div className="w-full sm:w-1/2 p-8 order-2 sm:order-1 flex flex-col ">
+        <div className="pb-16">
+          <h2 className="pb-8 text-4xl">Wanting to get in contact with us?</h2>
+          <p className="pb-8">
+            Either flick us a message on one of our socials, drop by the studio
+            (during normal business hours) or fill out the form below and we'll
+            get back to you.
+          </p>
+          <div className="flex flex-col pb-4 justify-center">
+            <a
+              href="https://instagram.com/grandrisingstudios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition-colors duration-300"
+            >
+              <p>
+                Instagram:{" "}
+                <i className="hover:underline underline md:no-underline">
+                  @grandrisingstudios
+                </i>
+              </p>
+            </a>
+            <a
+              href="https://facebook.com/grandrisingstudios"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition-colors duration-300"
+            >
+              <p>
+                Facebook:{" "}
+                <i className="hover:underline underline md:no-underline">
+                  @grandrisingstudios
+                </i>
+              </p>
+            </a>
+          </div>
+          <div>
+            <p>Email: grandrisingstudios@gmail.com</p>
+            <p>Studio Address: 40A Water Street, Whangārei 0110</p>
+          </div>
         </div>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="max-w-md mx-auto bg-gray-900 p-8 rounded-lg shadow-lg"
-        >
+        <form ref={formRef} onSubmit={handleSubmit} className="w-full ">
           <div className="mb-6">
             <label htmlFor="name" className="block mb-2 text-sm font-medium">
               Your Name
@@ -103,7 +103,7 @@ const ContactComponent: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 text-gray-900 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none"
             />
           </div>
           <div className="mb-6">
@@ -117,7 +117,7 @@ const ContactComponent: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 text-gray-900 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none"
             />
           </div>
           <div className="mb-6">
@@ -131,16 +131,25 @@ const ContactComponent: React.FC = () => {
               onChange={handleChange}
               required
               rows={4}
-              className="w-full px-3 py-2 text-gray-900 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none"
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300"
+            className="w-full px-3 py-2 text-gray-900 bg-gray-100 focus:outline-none"
           >
             Send Message
           </button>
         </form>
+      </div>
+      <div className="w-full max-w-2xl sm:w-1/2 order-1 sm:order-2 flex items-center justify-center p-8">
+        <DynamicCloudinaryImage
+          src="/grand-rising-shop.png"
+          alt="Contact Us"
+          width={600}
+          height={600}
+          extraClasses="w-full h-auto object-cover"
+        />
       </div>
     </section>
   );
