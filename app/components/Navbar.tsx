@@ -6,6 +6,7 @@ import Link from "next/link";
 import BookNowButton from "./BookNowButton";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import { gsap } from "gsap";
 
 type section = { id: string; label: string; href: string };
 
@@ -22,6 +23,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
@@ -69,6 +71,29 @@ const Navbar = () => {
     }
   }, [isHomePage, pathname]);
 
+  useEffect(() => {
+    if (isDropdownOpen) {
+      gsap.to(mobileMenuRef.current, {
+        duration: 0.5,
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+      });
+    } else {
+      gsap.to(mobileMenuRef.current, {
+        duration: 0.5,
+        opacity: 0,
+        y: -20,
+        ease: "power3.in",
+        onComplete: () => {
+          if (mobileMenuRef.current) {
+            mobileMenuRef.current.style.display = "none";
+          }
+        },
+      });
+    }
+  }, [isDropdownOpen]);
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
     setActiveSection(target.name);
@@ -81,12 +106,19 @@ const Navbar = () => {
     }
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    if (!isDropdownOpen && mobileMenuRef.current) {
+      mobileMenuRef.current.style.display = "flex";
+    }
+  };
+
   const desktopNav = (
-    <div className="hidden md:flex justify-center w-full  ">
+    <div className="hidden md:flex justify-center w-full">
       <ul className="flex justify-around w-full md:w-3/4 max-w-2xl mx-auto backdrop-filter backdrop-blur-lg rounded-lg shadow-lg bg-transparent">
         {sections.map((section) => {
           if (section.id === "hero") {
-            return;
+            return null;
           } else {
             return (
               <li
@@ -144,10 +176,10 @@ const Navbar = () => {
           </Link>
         </div>
         {desktopNav}
-        <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
+        <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
           <Button
-            className="text-white px-4 py-3 hover:bg-gray-700  rounded-full transition-colors duration-300 bg-filter backdrop-blur-lg bg-transparent "
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="text-white px-4 py-3 hover:bg-gray-700 flex justify-center rounded-full transition-colors duration-300 bg-filter backdrop-blur-lg bg-transparent hover:bg-transparent"
+            onClick={toggleDropdown}
           >
             {activeSection}
             <span className="ml-1">
@@ -168,34 +200,55 @@ const Navbar = () => {
               )}
             </span>
           </Button>
-          {isDropdownOpen && (
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-white rounded-md shadow-lg flex flex-col justify-center backdrop-filter backdrop-blur-lg bg-transparent">
-              {sections.map((section) => {
-                if (isHomePage && section.id === "hero") {
-                  return;
-                } else {
-                  return (
-                    <Link href={section.href} key={section.id}>
-                      <Button
-                        key={section.id}
-                        value={section.id}
-                        name={section.label}
-                        className="block w-full text-left px-4 py-2 bg-ghost hover:bg-gray-700 transition-all duration-300 hover:underline underline-offset-4 decoration-transparent hover:decoration-current"
-                        onClick={handleClick}
-                      >
-                        {section.label}
-                      </Button>
-                    </Link>
-                  );
-                }
-              })}
-            </div>
-          )}
         </div>
-        <div className="">
-          <BookNowButton extraClasses="rounded-full md:scale-110  bg-transparent hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 border border-white" />
+        <div>
+          <BookNowButton extraClasses="rounded-full md:scale-110 bg-transparent hover:backdrop-filter hover:backdrop-blur-lg text-white transition-colors duration-300 border border-white" />
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        ref={mobileMenuRef}
+        className="fixed inset-0 z-50 bg-black bg-opacity-95 flex-col pt-40  items-center hidden opacity-0 translate-y-14"
+      >
+        <Image
+          src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
+          alt="Grand Rising Logo"
+          height={200}
+          width={200}
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 cursor-pointer object-contain absolute top-4 left-4"
+        />
+        <button
+          onClick={toggleDropdown}
+          className="absolute top-4 right-4 text-white text-3xl"
+        >
+          &times;
+        </button>
+        {sections.map((section) => (
+          <Link href={section.href} key={section.id}>
+            <Button
+              value={section.id}
+              name={section.label}
+              className="text-white text-3xl my-4 px-8 py-4 bg-transparent hover:bg-gray-800 transition-all duration-300 rounded-lg"
+              onClick={handleClick}
+            >
+              {section.label}
+            </Button>
+          </Link>
+        ))}
+        <BookNowButton extraClasses="mt-4 text-xl px-8 py-4 rounded-full bg-transparent hover:bg-gray-800 text-white transition-colors duration-300 border border-white" />
+        <div className="mt-4">
+          <Link href="https://www.instagram.com/grandrisingstudios/">
+            <p className="text-white text-md mt-4">Instagram</p>
+          </Link>
+          <Link href="https://www.facebook.com/grandrisingstudios/">
+            <p className="text-white text-md mt-4">Facebook</p>
+          </Link>
+        </div>
+        <footer className="text-gray-300 text-sm mt-40">
+          © GRANDRISINGSTUDIOS {new Date().getFullYear()}
+        </footer>
+      </div>
     </>
   );
 };

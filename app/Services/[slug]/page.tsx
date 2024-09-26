@@ -7,6 +7,7 @@ import CloudinaryImage from "../../components/CloudinaryImage";
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 const DynamicCloudinaryVideoService = dynamic(
   () => import("../../components/CloudinaryVideo"),
@@ -29,8 +30,15 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white pt-navbar md:px-8">
-      <div className=" mx-auto  py-12">
+    <div className="min-h-screen bg-black text-white py-24 px-4 sm:px-6 lg:px-8">
+      <Link
+        href="/services/all"
+        className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors duration-300"
+      >
+        <ArrowLeft className="mr-2" />
+        Back to services
+      </Link>
+      <div className=" mx-auto ">
         <h1 className="text-4xl px-4 md:px-0 font-bold mb-8">
           {service.service}
         </h1>
