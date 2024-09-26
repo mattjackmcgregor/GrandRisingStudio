@@ -106,7 +106,7 @@ const Hero = () => {
           Grand Rising Studios
         </h1>
         <h2 className="text-white text-sm mb-8">Barber | Tattoo | Design</h2>
-        <BookNowButton extraClasses="rounded-full bg-transparent hover:bg-gray-200 hover:text-black transition-colors duration-300" />
+        <BookNowButton extraClasses="rounded-full bg-transparent hover:backdrop-filter hover:backdrop-blur-lg hover:underline transition-colors duration-300" />
       </div>
       <div ref={mouseScrollIconRef}>
         <MouseScrollIcon />

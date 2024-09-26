@@ -24,7 +24,7 @@ const Footer = () => (
       </div>
       <div className="flex justify-ceter items-center">
         <p className="text-center md:text-start text-gray-400 mt-4">
-          GRANDRISINGSTUDIOS{new Date().getFullYear()}&copy;
+          © GRANDRISINGSTUDIOS {new Date().getFullYear()}
         </p>
       </div>
     </div>

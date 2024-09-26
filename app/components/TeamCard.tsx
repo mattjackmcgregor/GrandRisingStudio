@@ -12,7 +12,6 @@ import DotsIndicator from "./DotsIndicator";
 import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 import type { CarouselApi } from "@/components/ui/carousel";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import CloudinaryImage from "./CloudinaryImage";
 
 const DynamicCloudinaryImage = dynamic(() => import("./CloudinaryImage"), {
@@ -147,7 +146,7 @@ const TeamCard: React.FC<Props> = ({
           </div>
           <div className="flex flex-col items-center md:items-start space-y-2">
             <p className="text-sm md:text-base font-semibold">Contact {name}</p>
-            <div className="flex flex-row flex-wrap justify-center md:justify-start gap-2">
+            <div className="flex flex-row flex-wrap justify-center md:justify-start ">
               {socialMediaLinks}
             </div>
           </div>

@@ -53,7 +53,10 @@ const ContactComponent: React.FC = () => {
   };
 
   return (
-    <section className="bg-black text-white px-4 md:px-8 flex flex-col justify-center pt-16 sm:flex-row">
+    <section
+      id="contact"
+      className="bg-black text-white px-4 md:px-8 flex flex-col justify-center pt-16 sm:flex-row"
+    >
       <div className="w-full sm:w-1/2 p-8 order-2 sm:order-1 flex flex-col ">
         <div className="pb-16">
           <h2 className="pb-8 text-4xl">Wanting to get in contact with us?</h2>
