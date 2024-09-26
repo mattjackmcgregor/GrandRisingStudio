@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Footer = () => (
-  <footer className="bg-slate-950 text-white py-4">
+  <footer className="bg-black text-white py-4">
     <div className="px-16 flex flex-col md:flex-row sm:flex-wrap items-center justify-between px-8 border-t border-gray-700">
       <div className="flex md:w-1/3 space-x-4 ">
         <a

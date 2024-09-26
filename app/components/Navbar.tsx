@@ -209,7 +209,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         ref={mobileMenuRef}
-        className="fixed inset-0 z-50 bg-black bg-opacity-95 flex-col pt-40  items-center hidden opacity-0 translate-y-14"
+        className="fixed inset-0 z-50 bg-black bg-opacity-95 flex-col pt-16  items-center hidden opacity-0 translate-y-14"
       >
         <Image
           src="https://res.cloudinary.com/deiv1hpqw/image/upload/v1719897432/compressedLogo_lq4ksg.png"
@@ -245,7 +245,7 @@ const Navbar = () => {
             <p className="text-white text-md mt-4">Facebook</p>
           </Link>
         </div>
-        <footer className="text-gray-300 text-sm mt-40">
+        <footer className="text-gray-300 text-sm mt-16">
           © GRANDRISINGSTUDIOS {new Date().getFullYear()}
         </footer>
       </div>

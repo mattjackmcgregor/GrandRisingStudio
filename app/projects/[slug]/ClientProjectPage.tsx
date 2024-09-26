@@ -74,7 +74,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
     <div className="min-h-screen bg-black text-white pt-navbar ">
       <div
         ref={projectTagRef}
-        className="fixed top-18 left-4 z-10 backdrop-blur-lg "
+        className="fixed top-18 left-4 z-10 backdrop-blur-lg p-2 shadow-lg "
       >
         <Link
           href="/projects/all"
@@ -83,7 +83,7 @@ const ClientProjectPage: React.FC<ClientProjectPageProps> = ({ project }) => {
           <ArrowLeft className="mr-2" />
           Back to Projects
         </Link>
-        <div className="bg-opacity-70 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg px-4 max-w-xs">
+        <div className=" rounded-lg  px-4 pt-4 max-w-xs">
           <h2 className="text-lg font-semibold text-white mb-2">
             {project.title}
           </h2>
