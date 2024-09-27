@@ -26,7 +26,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=400%", // Adjust based on the number of services
+          end: "+=300%", // Adjust based on the number of services
           scrub: 1,
           pin: true,
         },
@@ -34,7 +34,8 @@ export default function Home() {
 
       // Hero animation
       tl.to(heroRef.current, {
-        scale: 1.5,
+        scale: 10,
+        y: -1000,
         opacity: 0,
         duration: 1,
         ease: "power2.inOut",
@@ -50,8 +51,16 @@ export default function Home() {
           tl.to(section, { opacity: 1, duration: 1 }, "-=0.5");
         }
         if (index < serviceSections.length - 1) {
-          tl.to(section, { opacity: 0, duration: 1 }, "+=0.5");
-          tl.to(serviceSections[index + 1], { opacity: 1, duration: 1 }, "<");
+          tl.to(
+            section,
+            { opacity: 0, duration: 1, ease: "power2.inOut" },
+            "+=0.5"
+          );
+          tl.to(
+            serviceSections[index + 1],
+            { opacity: 1, duration: 1, ease: "power2.inOut" },
+            "<"
+          );
         }
       });
 
@@ -63,30 +72,29 @@ export default function Home() {
       // );
 
       // ... add other section animations here if needed
-      animateParallaxSections();
     });
 
     return () => ctx.revert();
   }, []);
 
-  function animateParallaxSections() {
-    [teamRef, projectsRef, contactRef].forEach((sectionRef) => {
-      gsap.fromTo(
-        sectionRef.current,
-        { y: "100%" },
-        {
-          y: "0%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "top top",
-            scrub: true,
-          },
-        }
-      );
-    });
-  }
+  // function animateParallaxSections() {
+  //   [teamRef, projectsRef, contactRef].forEach((sectionRef) => {
+  //     gsap.fromTo(
+  //       sectionRef.current,
+  //       { y: "100%" },
+  //       {
+  //         y: "0%",
+  //         ease: "none",
+  //         scrollTrigger: {
+  //           trigger: sectionRef.current,
+  //           start: "top bottom",
+  //           end: "top top",
+  //           scrub: true,
+  //         },
+  //       }
+  //     );
+  //   });
+  // }
 
   return (
     <main className="bg-black text-white">

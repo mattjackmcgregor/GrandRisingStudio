@@ -85,6 +85,10 @@ const config = {
           "0%, 100%": { opacity: "0" },
           "60%, 70%": { opacity: "1" },
         },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
 
       animation: {
@@ -94,6 +98,7 @@ const config = {
         dot1: "dot1 1.5s infinite",
         dot2: "dot2 1.5s infinite",
         dot3: "dot3 1.5s infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
     },
   },

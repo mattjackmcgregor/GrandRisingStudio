@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import gsap from "gsap";
 import BookNowButton from "./BookNowButton";
 import dynamic from "next/dynamic";
@@ -12,59 +12,54 @@ const DynamicCloudinaryVideo = dynamic(() => import("./CloudinaryVideo"), {
 });
 
 const Hero = () => {
+  const [hasScrolled, setHasScrolled] = React.useState(false);
   const h1Ref = useRef(null);
-  const mouseScrollIconRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const { clientX, clientY } = event;
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const deltaX = clientX - centerX;
-      const deltaY = clientY - centerY;
-
-      // Calculate opposite direction for shadow
-      const shadowX = -(deltaX / 40);
-      const shadowY = -(deltaY / 40);
-
-      const rotateX = -(deltaY / centerY) * 10; // Max rotation angle in degrees
-      const rotateY = -(deltaX / centerX) * -10; // Max rotation angle in degrees
-
+    if (!hasScrolled) {
       gsap.to(h1Ref.current, {
-        rotateX,
-        rotateY,
-        textShadow: `${shadowX}px ${shadowY}px 10px rgba(0, 0, 0, 100)`,
-        duration: 0.1,
-        ease: "power2.out",
-        transformPerspective: 500, // Add perspective to the transformation
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
       });
-    };
+    }
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-
-      if (scrollPosition > 0) {
-        gsap.to(mouseScrollIconRef.current, {
-          opacity: 0,
-          duration: 0.5,
-        });
+      if (scrollPosition > 1) {
+        setHasScrolled(true);
       } else {
-        gsap.to(mouseScrollIconRef.current, {
-          opacity: 1,
-          duration: 0.5,
-        });
+        setHasScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasScrolled]);
 
-    window.addEventListener("mousemove", handleMouseMove);
+  const handleMouseMove = (event: React.MouseEvent) => {
+    const { clientX, clientY } = event;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const deltaX = clientX - centerX;
+    const deltaY = clientY - centerY;
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    // Calculate opposite direction for shadow
+    const shadowX = -(deltaX / 40);
+    const shadowY = -(deltaY / 40);
+
+    const rotateX = -(deltaY / centerY) * 10; // Max rotation angle in degrees
+    const rotateY = -(deltaX / centerX) * -10; // Max rotation angle in degrees
+
+    gsap.to(h1Ref.current, {
+      rotateX,
+      rotateY,
+      textShadow: `${shadowX}px ${shadowY}px 10px rgba(0, 0, 0, 100)`,
+      duration: 0.1,
+      ease: "power2.out",
+      transformPerspective: 500, // Add perspective to the transformation
+    });
+  };
 
   const HeroVideo = useMemo(() => {
     return (
@@ -89,7 +84,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-full flex flex-col bg-black items-center justify-center overflow-hidden">
+    <section
+      onMouseMove={handleMouseMove}
+      className="relative w-full h-full flex flex-col bg-black items-center justify-center overflow-hidden"
+    >
       <div id="bg-video" className="absolute inset-0 z-0">
         {HeroVideo}
       </div>
@@ -105,8 +103,12 @@ const Hero = () => {
         <h2 className="text-white text-sm mb-8">Barber | Tattoo | Design</h2>
         <BookNowButton extraClasses="rounded-full bg-transparent hover:backdrop-filter hover:backdrop-blur-lg hover:underline transition-colors duration-300" />
       </div>
-      <div ref={mouseScrollIconRef}>
-        <MouseScrollIcon />
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        {!hasScrolled && (
+          <p className="text-white text-xs opacity-50 bg-gradient-to-r from-white via-white to-gray-400 bg-[length:200%_100%] animate-shimmer bg-clip-text text-transparent ">
+            Scroll down
+          </p>
+        )}
       </div>
     </section>
   );
