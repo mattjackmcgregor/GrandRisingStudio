@@ -89,10 +89,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section
-      id="hero"
-      className="relative h-screen w-full flex flex-col bg-black items-center justify-center"
-    >
+    <section className="relative w-full h-full flex flex-col bg-black items-center justify-center overflow-hidden">
       <div id="bg-video" className="absolute inset-0 z-0">
         {HeroVideo}
       </div>

@@ -108,3 +108,16 @@
     padding-top: 7rem; /* For xl breakpoint */
   }
 }
+
+.dissolve-effect {
+  @apply relative overflow-hidden;
+}
+
+.dissolve-effect::after {
+  content: "";
+  @apply absolute inset-0 bg-black opacity-0 transition-opacity duration-500 ease-in-out;
+}
+
+.dissolve-effect.dissolve-active::after {
+  @apply opacity-100;
+}
