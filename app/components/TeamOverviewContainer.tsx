@@ -35,7 +35,7 @@ const TeamOverviewContainer = () => {
 
   return (
     <div id="teamOverview" className="h-full py-6 flex flex-col">
-      <h2 className="text-3xl font-bold text-center pb-6 text-white">
+      <h2 className="text-3xl font-bold font-bodoni text-center pb-6 text-white">
         Meet the Team
       </h2>
       <TeamCard

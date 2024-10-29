@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: process.env.EMAIL_USER,
-    to: "mattjackmcg@gmail.com",
+    to: "grandrising10@gmail.com",
     cc: email, // Add the email of the sender
     subject: `New enquiry from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

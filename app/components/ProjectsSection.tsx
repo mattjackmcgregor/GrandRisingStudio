@@ -38,7 +38,7 @@ const ProjectsSection: React.FC = () => {
       className="py-12 bg-black w-full overflow-hidden"
     >
       <div className=" w-full flex flex-col items-center">
-        <h2 className="text-3xl font-bold mb-8 text-center text-white">
+        <h2 className="text-3xl font-bold font-bodoni mb-8 text-center text-white">
           Featured Projects
         </h2>
         <div className=" w-full md:w-[90vw] flex flex-col justify-center">

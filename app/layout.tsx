@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+const bodoniModa = Bodoni_Moda({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bodoni-moda",
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black`}>
+      <body className={`${inter.className}  ${bodoniModa.variable} bg-black`}>
         <Navbar />
         {children}
         <Footer />

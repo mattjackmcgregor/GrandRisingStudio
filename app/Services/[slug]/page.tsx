@@ -39,7 +39,7 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
         Back to services
       </Link>
       <div className=" mx-auto ">
-        <h1 className="text-4xl px-4 md:px-0 font-bold mb-8">
+        <h1 className="text-4xl px-4 md:px-0 font-bold  mb-8">
           {service.service}
         </h1>
 

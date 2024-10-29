@@ -30,7 +30,7 @@ const Service: React.FC<ServiceProps> = ({
         </div>
         <div className="relative z-10 bg-black bg-opacity-50 w-full h-full flex flex-col justify-center items-center p-4">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-6xl mb-6">{service}</h1>
+            <h1 className="text-6xl mb-6 font-bodoni">{service}</h1>
             <p className="mb-8 text-sm px-4">{description}</p>
 
             <p className="text-white text-sm font-semibold hover:underline cursor-pointer transition-all duration-300">

@@ -128,7 +128,7 @@ const TeamCard: React.FC<Props> = ({
         </div>
         {/* Blur Overlay */}
         <div className="flex flex-col items-center md:items-start mb-4 md:mb-10 z-10 space-y-4 md:space-y-6">
-          <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold">
+          <h1 className="text-center md:text-left text-3xl md:text-4xl font-bold font-bodoni">
             {name}
           </h1>
           <h2 className="text-center text-gray-300 md:text-left text-sm md:text-base">

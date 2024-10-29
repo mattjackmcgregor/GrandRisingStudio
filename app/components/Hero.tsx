@@ -100,7 +100,7 @@ const Hero = () => {
         {HeroImage}
         <h1
           ref={h1Ref}
-          className="text-white text-4xl mb-4"
+          className="text-white text-4xl mb-4 font-bodoni"
           style={{ textShadow: "0 0 10px rgba(0, 0, 0, 0.2)" }}
         >
           Grand Rising Studios
