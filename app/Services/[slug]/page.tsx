@@ -96,7 +96,7 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
                 className="bg-transparent border border-gray-600 transform hover:scale-105 cursor-pointer transition-all duration-300 p-4 rounded-lg"
               >
                 <CloudinaryImage
-                  src="//compressedLogo_lq4ksg" // @TODO: Replace with actual image of person
+                  src={specialist.urlPath} // @TODO: Replace with actual image of person
                   alt={`Specialist ${specialist.name}`}
                   width={200}
                   height={200}
@@ -106,10 +106,10 @@ const ServicePage = ({ params }: { params: { slug: string } }) => {
                   {specialist.name}
                 </h3>
                 <ul className="flex">
-                  {specialist.skills.map((skill, index) => (
+                  {specialist.specialist.map((skill, index) => (
                     <li key={skill} className="text-gray-300 italic text-sm">
                       {skill}
-                      {index < specialist.skills.length - 1 && (
+                      {index < specialist.specialist.length - 1 && (
                         <span className="mx-1">|</span>
                       )}
                     </li>

@@ -60,10 +60,20 @@ const ContactComponent: React.FC = () => {
       <div className="w-full sm:w-1/2 p-8 order-2 sm:order-1 flex flex-col ">
         <div className="pb-16">
           <h2 className="pb-8 text-4xl">Wanting to get in contact with us?</h2>
+          <p className="pb-4 italic">
+            To book in with one of our Barbers via gettimely, click the Book now
+            button or{" "}
+            <a
+              href="https://bookings.gettimely.com/grandrising/"
+              className="underline"
+            >
+              click here
+            </a>
+          </p>
           <p className="pb-8">
-            Either flick us a message on one of our socials, drop by the studio
-            (during normal business hours) or fill out the form below and
-            we&apos;ll get back to you.
+            for all enquires, either flick us a message on one of our socials,
+            drop by the studio (during normal business hours) or fill out the
+            form below and we&apos;ll get back to you.
           </p>
           <div className="flex flex-col pb-4 justify-center">
             <a

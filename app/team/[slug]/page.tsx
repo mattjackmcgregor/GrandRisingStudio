@@ -27,7 +27,7 @@ const TeamMemberPage = ({ params: { slug } }: { params: { slug: string } }) => {
           <ArrowLeft className="mr-2" />
           Back to Team
         </Link>
-        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+        <div className=" rounded-lg overflow-hidden shadow-2xl">
           <div className="relative h-96">
             <CloudinaryImage
               src={member.images[0]}

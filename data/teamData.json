@@ -2,74 +2,62 @@
   "teamData": [
     {
       "id": 1,
-      "slug": "john-doe",
-      "name": "John Doe",
+      "slug": "josh-moetara",
+      "name": "Josh Moetara",
       "profile_image": {
-        "url": "barberCompressedImg",
+        "url": "josh-moetara",
         "alt": "Profile pic"
       },
-      "images": [
-        "barberCompressedImg",
-        "tattooCompressedImg",
-        "barberCompressedImg",
-        "tattooCompressedImg"
-      ],
-      "services": ["Web Development", "UI/UX Design", "Consulting"],
-      "description": "John is a seasoned web developer with over 10 years of experience in building responsive and user-friendly websites. He specializes in front-end development and has a keen eye for design. experience in building responsive and user-friendly websites. \n He specializes in front-end development and has a keen eye for design experience in building responsive and user-friendly websites. \n He specializes in front-end development and has a keen eye for design",
+      "images": ["josh-moetara", "josh-moetara", "josh-moetara"],
+      "services": ["Barber", "Tattoo", "Art"],
+      "description": "Josh is a professional barber with over 12 years of experience. After serving A-tier clients with the likes of ASAP Ferg and Trey songz out of his successful studio in Brisbane, Josh has Relocated back to his roots. \n  Josh decided to open up Grand Rising Studios for his crew to establish theirselves out of, to offer world class skills and expertise back the hometown that raised them.",
       "socialMediaHandles": {
-        "twitter": "https://twitter.com/johndoe",
-        "linkedin": "https://linkedin.com/in/johndoe",
-        "github": "https://github.com/johndoe"
+        "instagram": "https://www.instagram.com/lotus47ven/"
       }
     },
     {
       "id": 2,
-      "slug": "jane-smith",
-      "name": "Jane Smith",
+      "slug": "quincy-pokoina",
+      "name": "Quincy Pokoina",
       "profile_image": {
-        "url": "barberCompressedImg",
+        "url": "quincy-pokoina",
         "alt": "Profile pic"
       },
-      "images": [
-        "barberCompressedImg",
-        "tattooCompressedImg",
-        "tattooCompressedImg",
-        "tattooCompressedImg",
-        "barberCompressedImg",
-        "tattooCompressedImg"
-      ],
-      "services": [
-        "Digital Marketing",
-        "Social Media Management",
-        "Content Creation"
-      ],
-      "description": "Jane is a digital marketing expert with a proven track record of driving growth and engagement for businesses across various industries.\n She excels in creating compelling content and executing effective social media strategies.",
+      "images": ["quincy-pokoina", "quincy-pokoina"],
+      "services": ["Tattoo", "Art", "Design", "video production"],
+      "description": "A renaissance creative. As tattoo artist of more then 10 years, Quincy is well renowned worldwide for his high quality realism pieces and clean flows. \n Quincy's also applies his skillsets to other creative mediums. From art installations and design services, to script writing and videography. His passion for the arts combined with his eye for detail, makes for a deadly combo.",
       "socialMediaHandles": {
-        "twitter": "https://twitter.com/janesmith",
-        "instagram": "https://instagram.com/janesmith",
-        "facebook": "https://facebook.com/janesmith"
+        "instagram": "https://www.instagram.com/quinnyhendrix"
       }
     },
     {
       "id": 3,
-      "slug": "michael-johnson",
-      "name": "Michael Johnson",
+      "slug": "jovahn-tione",
+      "name": "Jovahn Tione",
       "profile_image": {
-        "url": "barberCompressedImg",
+        "url": "jovahn-tione",
         "alt": "Profile pic"
       },
-      "images": [
-        "tattooCompressedImg",
-        "tattooCompressedImg",
-        "barberCompressedImg",
-        "barberCompressedImg"
-      ],
-      "services": ["Graphic Design", "Branding", "Print Design"],
-      "description": "Michael is a talented graphic designer with a passion for creating visually stunning designs that captivate audiences.\n He has a keen eye for detail and a deep understanding of branding principles.",
+      "images": ["jovahn-tione", "jovahn-tione"],
+      "services": ["Barber"],
+      "description": "Although Jovahn being youngest of our crew here at the studio, his cuts are years ahead of his age. (we stole him a few years ago for this very reason!) \n From burst fades and tapers to classic cuts and long hair styles, he has it all, and according to his clients, \"unmatched steeze\". (we also agree!)",
       "socialMediaHandles": {
-        "behance": "https://behance.net/michaeljohnson",
-        "dribbble": "https://dribbble.com/michaeljohnson",
-        "instagram": "https://instagram.com/michaeljohnson"
+        "instagram": "https://www.instagram.com/jov2hn"
+      }
+    },
+    {
+      "id": 4,
+      "slug": "Thaisyn-houghton",
+      "name": "Thaisyn Houghton",
+      "profile_image": {
+        "url": "thaisyn-houghton-1",
+        "alt": "Profile pic"
+      },
+      "images": ["thaisyn-houghton-1", "thaisyn-houghton-1"],
+      "services": ["tattoo", "Design"],
+      "description": "Thaisyn's attention to detail is a reflection of his personal style (puts us to shame everytime he walks into the studio 🙄) and it shows in his work. \n He was always destined to establish himself out of Grand Rising Studios, (after all, he is family). From his exposure to various styles in his early career, He's developed his own contemporary style, combo'd with fineline and insane dot work. \n His work is highly sought after and brings the flair to our studio",
+      "socialMediaHandles": {
+        "instagram": "https://www.instagram.com/thaisyn.houghton"
       }
     }
   ]

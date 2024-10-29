@@ -15,12 +15,13 @@ const TeamAllPage = () => {
               Our Team
             </h1>
             <p className="text-lg mb-6 text-center lg:text-left">
-              At our studio, we offer a range of professional services including
-              barbering, tattooing, and design. Each service is delivered with
-              the highest level of skill and attention to detail.
+              Grand Rising Studios host a team that consists of world renouned
+              professionals, specialist and creative individuals. With extensive
+              experience across the creative industries, our team bring their
+              worldclass skills to our clients.
             </p>
             <p className="text-lg mb-12 text-center lg:text-left">
-              Click on each service to learn more about what we offer.
+              Click on each member to learn more.
             </p>
           </div>
 
